@@ -1,6 +1,6 @@
 {
   "name": "rad-notification",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "rad-notification component",
   "main": "dist/Notification.min.js",
   "repository": "https://github.com/hyperfuse/library-starter.git",
