@@ -1,0 +1,42 @@
+{
+  "name": "rad-tabs",
+  "version": "0.0.0",
+  "description": "rad-tabs component",
+  "main": "dist/Tabs.min.js",
+  "repository": "https://github.com/hyperfuse/library-starter.git",
+  "author": "Kennet Postigo <kennetfpostigo@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:develop": "cross-env NODE_ENV=development rollup -c ./rollup.config.js",
+    "build:production": "cross-env NODE_ENV=production rollup -c ./rollup.config.js",
+    "build": "yarn run clean && npm run build:develop && yarn run build:production",
+    "watch": "cross-env NODE_ENV=development rollup -c ./rollup.config.js -w",
+    "test": "BABEL_ENV=test && jest --no-cache",
+    "coverage": "jest && codecov",
+    "test:watch": "jest --converage --watch"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-jest": "^18.0.0",
+    "babel-plugin-syntax-flow": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.22.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.22.0",
+    "babel-preset-babili": "^0.0.10",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-react": "^6.22.0",
+    "codecov": "^1.0.1",
+    "cross-env": "^3.1.4",
+    "flow-bin": "^0.38.0",
+    "jest": "^18.1.0",
+    "rimraf": "^2.5.4",
+    "rollup": "^0.41.4",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-watch": "^3.2.2"
+  },
+  "peerDependencies": {
+    "react": "^15.4.2"
+  }
+}
