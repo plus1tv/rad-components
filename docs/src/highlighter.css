@@ -1,0 +1,317 @@
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #333;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	tab-size: 2;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #F9FFFF;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #F9FFFF;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+		margin-top: 0px;
+		padding-top: 0px
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 0em;
+	margin:  0;
+	overflow: auto;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #F9FFFF;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .0em;
+	border-radius: .3em;
+	white-space: normal;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #b1b1b1;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+.token.punctuation {
+	color: #000;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+.namespace {
+	opacity: .7;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #7691ff;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #FF9EF8;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #FF9EF8;
+	background: hsla(0, 0%, 100%, .5);
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #8574FF;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+.token.function {
+	color: #2ce6e2;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #8574FF;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+	margin-top: 0px;
+	padding-top: 0px
+}
+.token.italic {
+	font-style: italic;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+.token.entity {
+	cursor: help;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+pre.line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+pre.line-numbers > code {
+	position: relative;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	left: -3.8em;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+	border-right: 3px solid #FF9EF8;
+	background-color: #8574FF;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	margin: 0;
+		padding-top: 0;
+}
+
+.line-numbers-rows > span {
+	pointer-events: none;
+	display: block;
+	counter-increment: linenumber;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+.line-numbers-rows > span:before {
+	content: counter(linenumber);
+	color: #fff;
+	text-shadow: none;
+	display: block;
+	padding-right: 0.8em;
+	text-align: right;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+pre[data-line] {
+	position: relative;
+	padding: 0em 0 0em 3em;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+.line-highlight {
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding: inherit 0;
+	margin-top: 1em; /* Same as .prism’s padding-top */
+
+	background: hsla(24, 20%, 50%,.08);
+	background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+
+	pointer-events: none;
+
+	line-height: inherit;
+	white-space: pre;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+	.line-highlight:before,
+	.line-highlight[data-end]:after {
+		content: attr(data-start);
+		position: absolute;
+		top: .4em;
+		left: .6em;
+		min-width: 1em;
+		padding: 0 .5em;
+		background-color: hsla(24, 20%, 50%,.4);
+		color: hsl(24, 20%, 95%);
+		font: bold 65%/1.5 sans-serif;
+		text-align: center;
+		vertical-align: .3em;
+		border-radius: 999px;
+		text-shadow: none;
+		box-shadow: 0 1px white;
+		margin-top: 0px;
+		padding-top: 0px
+	}
+
+	.line-highlight[data-end]:after {
+		content: attr(data-end);
+		top: auto;
+		bottom: .4em;
+	}
+
+	div.prism-show-language {
+	position: relative;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+div.prism-show-language > div.prism-show-language-label {
+	color: black;
+	background-color: #CFCFCF;
+	display: inline-block;
+	position: absolute;
+	bottom: auto;
+	left: auto;
+	top: 0;
+	right: 0;
+	width: auto;
+	height: auto;
+	font-size: 0.9em;
+	border-radius: 0 0 0 5px;
+	padding: 0 0.5em;
+	text-shadow: none;
+	z-index: 1;
+	box-shadow: none;
+	-webkit-transform: none;
+	-moz-transform: none;
+	-ms-transform: none;
+	-o-transform: none;
+	transform: none;
+	margin-top: 0px;
+	padding-top: 0px
+}
+
+pre, xmp, plaintext, listing {
+    display: block;
+    font-family: monospace;
+    white-space: pre;
+    margin: 0px;
+    padding: 0px;
+		font-size: 14px;
+}
+code {
+	margin-top: 0px;
+	padding-top: 0px;
+	font-size: 14px;
+}

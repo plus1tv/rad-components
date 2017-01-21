@@ -1,0 +1,30 @@
+{
+  "presets": [
+    "es2015-rollup",
+    "react"
+  ],
+  "plugins": [
+    "syntax-flow",
+    "transform-flow-strip-types",
+    "transform-object-rest-spread",
+    "transform-class-properties"
+  ],
+  "env": {
+    "development": {
+      "presets": [],
+      "plugins": []
+    },
+    "production": {
+      "presets": [
+        "babili"
+      ],
+      "plugins": []
+    },
+    "test": {
+      "presets": [],
+      "plugins": [
+        "babel-plugin-transform-es2015-modules-commonjs"
+      ]
+    }
+  }
+}

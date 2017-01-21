@@ -1,0 +1,80 @@
+lerna(verbose) GitUtilities.isInitialized    ()
+lerna(verbose) GitUtilities.isInitialized    () => true
+lerna(verbose) GitUtilities.getTopLevelDirectory()
+lerna(verbose) GitUtilities.getTopLevelDirectory() => "/Users/kennetpostigo/Projects/rad-components"
+lerna(verbose) FileSystemUtilities.existsSync("/Users/kennetpostigo/Projects/rad-components/lerna.json")
+lerna(verbose) FileSystemUtilities.existsSync("/Users/kennetpostigo/Projects/rad-components/lerna.json") => true
+lerna(verbose) FileSystemUtilities.readFileSync("/Users/kennetpostigo/Projects/rad-components/lerna.json")
+lerna(verbose) FileSystemUtilities.readFileSync("/Users/kennetpostigo/Projects/rad-components/lerna.json") => "{\n  \"lerna\": \"2.0.0-beta.32\",\n  \"version\": \"0.0.0\",\n  \"packages\": [\n    \"packages/*\"\n  ]\n}"
+lerna(verbose) FileSystemUtilities.existsSync("/Users/kennetpostigo/Projects/rad-components/package.json")
+lerna(verbose) FileSystemUtilities.existsSync("/Users/kennetpostigo/Projects/rad-components/package.json") => true
+lerna(verbose) FileSystemUtilities.readFileSync("/Users/kennetpostigo/Projects/rad-components/package.json")
+lerna(verbose) FileSystemUtilities.readFileSync("/Users/kennetpostigo/Projects/rad-components/package.json") => "{\n  \"devDependencies\": {\n    \"lerna\": \"2.0.0-beta.32\"\n  }\n}"
+lerna(info)    Lerna v2.0.0-beta.32
+lerna(verbose) FileSystemUtilities.existsSync("/Users/kennetpostigo/Projects/rad-components/package.json")
+lerna(verbose) FileSystemUtilities.existsSync("/Users/kennetpostigo/Projects/rad-components/package.json") => true
+lerna(verbose) FileSystemUtilities.existsSync("/Users/kennetpostigo/Projects/rad-components/lerna.json")
+lerna(verbose) FileSystemUtilities.existsSync("/Users/kennetpostigo/Projects/rad-components/lerna.json") => true
+lerna(verbose) FileSystemUtilities.existsSync("/Users/kennetpostigo/Projects/rad-components/VERSION")
+lerna(verbose) FileSystemUtilities.existsSync("/Users/kennetpostigo/Projects/rad-components/VERSION") => false
+lerna(verbose) FileSystemUtilities.existsSync("./rad-card/package.json")
+lerna(verbose) FileSystemUtilities.existsSync("./rad-card/package.json") => true
+lerna(verbose) FileSystemUtilities.existsSync("./rad-codehighlighter/package.json")
+lerna(verbose) FileSystemUtilities.existsSync("./rad-codehighlighter/package.json") => true
+lerna(verbose) FileSystemUtilities.existsSync("./rad-components/package.json")
+lerna(verbose) FileSystemUtilities.existsSync("./rad-components/package.json") => true
+lerna(verbose) FileSystemUtilities.existsSync("./rad-modal/package.json")
+lerna(verbose) FileSystemUtilities.existsSync("./rad-modal/package.json") => true
+lerna(verbose) FileSystemUtilities.existsSync("./rad-navbar/package.json")
+lerna(verbose) FileSystemUtilities.existsSync("./rad-navbar/package.json") => true
+lerna(verbose) FileSystemUtilities.existsSync("./rad-navdrawer/package.json")
+lerna(verbose) FileSystemUtilities.existsSync("./rad-navdrawer/package.json") => true
+lerna(verbose) FileSystemUtilities.existsSync("./rad-notification/package.json")
+lerna(verbose) FileSystemUtilities.existsSync("./rad-notification/package.json") => true
+lerna(verbose) FileSystemUtilities.existsSync("./rad-popover/package.json")
+lerna(verbose) FileSystemUtilities.existsSync("./rad-popover/package.json") => true
+lerna(verbose) FileSystemUtilities.existsSync("./rad-stepper/package.json")
+lerna(verbose) FileSystemUtilities.existsSync("./rad-stepper/package.json") => true
+lerna(verbose) FileSystemUtilities.existsSync("./rad-tabs/package.json")
+lerna(verbose) FileSystemUtilities.existsSync("./rad-tabs/package.json") => true
+lerna(verbose) Attempting running PublishCommand.initialize
+lerna(info)    Current version: 0.0.0
+lerna(info)    Checking for updated packages...
+lerna(verbose) GitUtilities.hasTags          ()
+lerna(verbose) GitUtilities.hasTags          () => true
+lerna(verbose) GitUtilities.getLastTaggedCommit()
+lerna(verbose) GitUtilities.getLastTaggedCommit() => "b0a13d7edccc1ae25768d0f8d85f6794c1ee6a9f"
+lerna(verbose) GitUtilities.describeTag      ("b0a13d7edccc1ae25768d0f8d85f6794c1ee6a9f")
+lerna(verbose) GitUtilities.describeTag      ("b0a13d7edccc1ae25768d0f8d85f6794c1ee6a9f") => "v0.0.0"
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-card")
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-card") => ""
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-codehighlighter")
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-codehighlighter") => ""
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-components")
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-components") => ""
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-modal")
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-modal") => ""
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-navbar")
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-navbar") => ""
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-navdrawer")
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-navdrawer") => ""
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-notification")
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-notification") => ""
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-popover")
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-popover") => ""
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-stepper")
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-stepper") => ""
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-tabs")
+lerna(verbose) GitUtilities.diffSinceIn      ("v0.0.0", "./rad-tabs") => ""
+lerna(error)   Errored while running PublishCommand.initialize
+    Error: No updated packages to publish.
+        at PublishCommand.initialize (/Users/kennetpostigo/.config/yarn/global/node_modules/lerna/lib/commands/PublishCommand.js:98:18)
+        at PublishCommand._attempt (/Users/kennetpostigo/.config/yarn/global/node_modules/lerna/lib/Command.js:166:21)
+        at PublishCommand.runCommand (/Users/kennetpostigo/.config/yarn/global/node_modules/lerna/lib/Command.js:150:12)
+        at PublishCommand.run (/Users/kennetpostigo/.config/yarn/global/node_modules/lerna/lib/Command.js:69:12)
+        at Object.<anonymous> (/Users/kennetpostigo/.config/yarn/global/node_modules/lerna/bin/lerna.js:62:11)
+        at Module._compile (module.js:571:32)
+        at Object.Module._extensions..js (module.js:580:10)
+        at Module.load (module.js:488:32)
+        at tryModuleLoad (module.js:447:12)
+        at Function.Module._load (module.js:439:3)

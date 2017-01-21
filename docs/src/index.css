@@ -1,0 +1,147 @@
+@font-face {
+  font-family: 'CODE Bold';
+  font-weight: 200;
+  letter-spacing: 2px;
+  font-style: normal;
+  src: url('./../public/code/CODEB.otf');
+}
+@font-face {
+  font-family: 'CODE Light';
+  font-weight: 200;
+  letter-spacing: 2px;
+  font-style: normal;
+  src: url('./../public/code/CODEL.otf');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 200;
+  font-style: normal;
+  src: url('./../public/roboto/Roboto-Light.ttf');
+}
+
+html, body, #root {
+  overflow-x: hidden;
+  width: 100% !important;
+  display: flex;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'CODE Light';
+  letter-spacing: 2px;
+}
+
+h1{
+  letter-spacing: 2px;
+  font-family: 'CODE Bold';
+}
+
+p, a {
+  font-family: 'Roboto';
+  font-weight: 200;
+  line-height: 1.5;
+  word-spacing: 2;
+}
+
+/*.hljs {
+  font-family: 'Roboto';
+  display: block;
+  overflow-x: auto;
+  padding: 15px;
+  color: #333;
+  background: #F9FFFF;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #998;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #8574FF;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #7691ff;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #ff85a4;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #87f7f4;
+  font-weight: bold;
+}
+
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #458;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #ff77f5;
+  font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #009926;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #990073;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #0086b3;
+}
+
+.hljs-meta {
+  color: #999;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #fdd;
+}
+
+.hljs-addition {
+  background: #dfd;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}*/
+
+pre, xmp, plaintext, listing {
+    display: block;
+    font-family: monospace;
+    white-space: pre;
+    margin: 0px;
+    padding: 0px
+}
