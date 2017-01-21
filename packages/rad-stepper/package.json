@@ -1,6 +1,6 @@
 {
   "name": "rad-stepper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "rad-stepper component",
   "main": "dist/Stepper.min.js",
   "repository": "https://github.com/hyperfuse/library-starter.git",
