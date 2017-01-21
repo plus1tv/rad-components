@@ -1,6 +1,6 @@
 {
   "name": "rad-navbar",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "rad-navbar component",
   "main": "dist/Navbar.min.js",
   "repository": "https://github.com/hyperfuse/library-starter.git",

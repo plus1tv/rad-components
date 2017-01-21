@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal } from './../../../../packages/rad-modal/dist/Modal.min.js';
+import { Modal } from 'rad-modal';
 
 const Opener = (props) => <button>Im Controlled</button>;
 

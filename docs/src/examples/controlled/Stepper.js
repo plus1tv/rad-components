@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Stepper, Step } from './../../../../packages/rad-stepper/dist/Stepper.min.js';
+import { Stepper, Step } from 'rad-stepper';
 
 export class StepperControlled extends Component {
   constructor (props) {

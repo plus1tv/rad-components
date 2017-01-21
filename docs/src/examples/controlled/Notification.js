@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Notification } from './../../../../packages/rad-notification/dist/Notification.min.js';
+import { Notification } from 'rad-notification';
 
 export class NotificationControlled extends Component {
   constructor (props) {

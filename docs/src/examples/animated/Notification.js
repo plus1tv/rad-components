@@ -1,6 +1,6 @@
 import React from 'react';
 import Anime from 'react-anime';
-import { Notification } from './../../../../packages/rad-notification/dist/Notification.min.js';
+import { Notification } from 'rad-notification';
 
 export function NotificationAnimated (props) {
   return (

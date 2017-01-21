@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Navbrand, NavItemsRight, NavItemsLeft } from './../../../../packages/rad-navbar/dist/Navbar.min.js';
+import { Navbar, Navbrand, NavItemsRight, NavItemsLeft } from 'rad-navbar';
 
 export class NavbarControlled extends Component {
   constructor (props) {

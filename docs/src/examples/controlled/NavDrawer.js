@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavDrawer } from './../../../../packages/rad-navdrawer/dist/Navdrawer.min.js';
+import { NavDrawer } from 'rad-navdrawer';
 export class NavDrawerControlled extends Component {
   constructor (props) {
     super(props);

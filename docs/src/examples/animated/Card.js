@@ -1,6 +1,6 @@
 import React from 'react';
 import Anime from 'react-anime';
-import { Card, CardHeader, CardMedia } from './../../../../packages/rad-card/dist/Card.min.js';
+import { Card, CardHeader, CardMedia } from 'rad-card';
 
 export function CardAnimated (props) {
   return (

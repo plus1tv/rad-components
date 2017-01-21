@@ -1,6 +1,6 @@
 import React from 'react';
 import Anime from 'react-anime';
-import { NavDrawer } from './../../../../packages/rad-navdrawer/dist/Navdrawer.min.js';
+import { NavDrawer } from 'rad-navdrawer';
 
 export function NavDrawerAnimated (props) {
   return (

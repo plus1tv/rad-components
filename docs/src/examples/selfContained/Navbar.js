@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Navbrand, NavItemsLeft, NavItemsRight } from './../../../../packages/rad-navbar/dist/Navbar.min.js';
+import { Navbar, Navbrand, NavItemsLeft, NavItemsRight } from 'rad-navbar';
 
 export function NavbarSelfContained (props) {
   return (

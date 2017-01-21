@@ -1,6 +1,6 @@
 import React from 'react';
 import Anime from 'react-anime';
-import { Tabs, Tab } from './../../../../packages/rad-tabs/dist/Tabs.min.js';
+import { Tabs, Tab } from 'rad-tabs';
 
 export function TabsAnimated (props) {
   return (

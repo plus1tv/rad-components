@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardHeader, CardMedia } from './../../../../packages/rad-card/dist/Card.min.js';
+import { Card, CardHeader, CardMedia } from 'rad-card';
 
 export function CardSelfContained (props) {
   return (

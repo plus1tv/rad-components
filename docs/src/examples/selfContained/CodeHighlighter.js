@@ -1,5 +1,5 @@
 import React from 'react';
-import { CodeHighlighter } from './../../../../packages/rad-codehighlighter/dist/Codehighlighter.min.js';
+import { CodeHighlighter } from 'rad-codehighlighter';
 import './../../highlighter.css';
 
 export function CodeHighlighterSelfContained (props) {

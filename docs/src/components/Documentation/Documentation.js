@@ -9,7 +9,7 @@ import ViewSource from './ViewSource.js';
 import ViewComponent from './ViewComponent.js';
 import Github from './../Github.js';
 import Logo from './../Logo.js';
-import { Navbar, Navbrand, NavItemsRight, NavItemsMenu } from './../../../../packages/rad-navbar/dist/Navbar.min.js';
+import { Navbar, Navbrand, NavItemsRight, NavItemsMenu } from 'rad-navbar';
 
 const styles = StyleSheet.create({
   documentation: {

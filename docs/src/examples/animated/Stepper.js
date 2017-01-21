@@ -1,6 +1,6 @@
 import React from 'react';
 import Anime from 'react-anime';
-import { Stepper, Step } from './../../../../packages/rad-stepper/dist/Stepper.min.js';
+import { Stepper, Step } from 'rad-stepper';
 
 export function StepperAnimated (props) {
   return (

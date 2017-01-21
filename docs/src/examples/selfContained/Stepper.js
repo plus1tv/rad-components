@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stepper, Step } from './../../../../packages/rad-stepper/dist/Stepper.min.js';
+import { Stepper, Step } from 'rad-stepper';
 
 export function StepperSelfContained (props) {
   return (

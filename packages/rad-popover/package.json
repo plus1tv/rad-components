@@ -1,6 +1,6 @@
 {
   "name": "rad-popover",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "rad-popover component",
   "main": "dist/Popover.min.js",
   "repository": "https://github.com/hyperfuse/library-starter.git",

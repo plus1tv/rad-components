@@ -1,6 +1,6 @@
 import React from 'react';
 import Anime from 'react-anime';
-import { Navbar, Navbrand, NavItemsLeft, NavItemsRight } from './../../../../packages/rad-navbar/dist/Navbar.min.js';
+import { Navbar, Navbrand, NavItemsLeft, NavItemsRight } from 'rad-navbar';
 
 export function NavbarAnimated (props) {
   return (

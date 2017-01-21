@@ -1,6 +1,6 @@
 import React from 'react';
 import Anime from 'react-anime';
-import { Modal } from './../../../../packages/rad-modal/dist/Modal.min.js';
+import { Modal } from 'rad-modal';
 
 const Opener = (props) => <button>Im Self Contained</button>;
 

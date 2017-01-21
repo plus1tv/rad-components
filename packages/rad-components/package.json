@@ -1,6 +1,6 @@
 {
   "name": "rad-components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "All rad-components",
   "main": "/dist/Components.min.js",
   "repository": "https://github.com/hyperfuse/library-starter.git",
@@ -42,14 +42,14 @@
     "react": "^15.4.2"
   },
   "dependencies": {
-    "rad-card": "^0.0.0",
-    "rad-codehighlighter": "^0.0.0",
-    "rad-modal": "^0.0.0",
-    "rad-navbar": "^0.0.0",
-    "rad-navdrawer": "^0.0.0",
-    "rad-notification": "^0.0.0",
-    "rad-popover": "^0.0.0",
-    "rad-stepper": "^0.0.0",
-    "rad-tabs": "^0.0.0"
+    "rad-card": "^0.0.2",
+    "rad-codehighlighter": "^0.0.2",
+    "rad-modal": "^0.0.2",
+    "rad-navbar": "^0.0.2",
+    "rad-navdrawer": "^0.0.2",
+    "rad-notification": "^0.0.2",
+    "rad-popover": "^0.0.2",
+    "rad-stepper": "^0.0.2",
+    "rad-tabs": "^0.0.2"
   }
 }

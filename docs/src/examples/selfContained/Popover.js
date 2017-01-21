@@ -1,5 +1,5 @@
 import React from 'react';
-import { Popover } from './../../../../packages/rad-popover/dist/Popover.min.js';
+import { Popover } from 'rad-popover';
 
 const Menu = (props) => <div style={{border: '1px solid lightgrey', textAlign: 'center', color: '#8574FF', backgroundColor: '#FF9EF8'}}><p style={{margin: 0,}}>:</p></div>;
 

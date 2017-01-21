@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs, Tab } from './../../../../packages/rad-tabs/dist/Tabs.min.js';
+import { Tabs, Tab } from 'rad-tabs';
 
 export function TabsSelfContained (props) {
   return (

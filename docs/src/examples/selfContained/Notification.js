@@ -1,5 +1,5 @@
 import React from 'react';
-import { Notification } from './../../../../packages/rad-notification/dist/Notification.min.js';
+import { Notification } from 'rad-notification';
 
 export function NotificationSelfContained (props) {
   return (
