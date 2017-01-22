@@ -1,6 +1,6 @@
 {
   "name": "rad-modal",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "rad-modal component",
   "main": "dist/Modal.min.js",
   "repository": "https://github.com/hyperfuse/library-starter.git",

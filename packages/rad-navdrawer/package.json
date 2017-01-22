@@ -1,6 +1,6 @@
 {
   "name": "rad-navdrawer",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "rad-navdrawer component",
   "main": "dist/Navdrawer.min.js",
   "repository": "https://github.com/hyperfuse/library-starter.git",
