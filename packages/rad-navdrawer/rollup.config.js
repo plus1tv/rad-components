@@ -18,7 +18,7 @@ export default {
   plugins: [
     babel({
       babelrc: true,
-      externalHelpers: true,
+      externalHelpers: false,
       runtimeHelpers: false,
       exclude: 'node_modules/**'
     })
