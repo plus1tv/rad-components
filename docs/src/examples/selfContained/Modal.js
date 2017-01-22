@@ -1,28 +1,38 @@
 import React, { Component } from 'react';
 import { Modal } from 'rad-modal';
 
-export default class Test extends Component {
-  constructor (props) {
+export class ModalSelfContained extends Component {
+  constructor(props) {
     super(props);
-    this.state = {
-      isOpen: false,
-    };
+    this.state = { isOpen: false };
   }
-  openModal () {
+  openModal() {
     alert('Do something when you open the <Modal />');
-    this.setState((prevState, currProps) => ({isOpen: true}));
+    this.setState((prevState, currProps) => ({ isOpen: true }));
   }
 
-  closeModal () {
+  closeModal() {
     alert('Do something when you close the <Modal />');
-    this.setState((prevState, currProps) => ({isOpen: false}));
+    this.setState((prevState, currProps) => ({ isOpen: false }));
   }
 
-  render () {
+  render() {
     return (
       <div>
-        <button onClick={(this.state.isOpen) ? this.closeModal.bind(this) : this.openModal.bind(this)}>I'm controlled</button>
-        <Modal openModal={() => this.openModal()} closeModal={() => this.closeModal()} isOpen={this.state.isOpen}>
+        <button
+          onClick={
+            this.state.isOpen
+              ? this.closeModal.bind(this)
+              : this.openModal.bind(this)
+          }
+        >
+          I'm controlled
+        </button>
+        <Modal
+          openModal={() => this.openModal()}
+          closeModal={() => this.closeModal()}
+          isOpen={this.state.isOpen}
+        >
           <h2>This Modal is Pretty Rad!?!?</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -34,8 +44,12 @@ export default class Test extends Component {
             officia deserunt mollit anim id est laborum.
           </p>
           <div>
-            <button style={{width: 120, height: 30, borderRadius: 0}}>Do Something</button>
-            <button style={{width: 120, height: 30, borderRadius: 0}}>Do Something Else</button>
+            <button style={{ width: 120, height: 30, borderRadius: 0 }}>
+              Do Something
+            </button>
+            <button style={{ width: 120, height: 30, borderRadius: 0 }}>
+              Do Something Else
+            </button>
           </div>
         </Modal>
       </div>
@@ -43,8 +57,7 @@ export default class Test extends Component {
   }
 }
 
-export var ModalSelfContainedSource =
-`
+export var ModalSelfContainedSource = `
 import React from 'react';
 import { Modal } from 'radcomponents';
 
@@ -72,8 +85,7 @@ function ModalSelfContained (props) {
 }
 `;
 
-export var ModalProps =
-`
+export var ModalProps = `
 Modal.propTypes = {
   width: React.PropTypes.number,
   height: React.PropTypes.number,
@@ -81,4 +93,4 @@ Modal.propTypes = {
   toggle: React.PropTypes.func,
   isOpen: React.PropTypes.bool,
 };
-`
+`;

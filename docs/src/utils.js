@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { NavbarSelfContained, NavbarSelfContainedSource, NavbarProps } from './examples/selfContained/Navbar.js';
-import { ModalSelfContained, ModalSelfContainedSource, ModalProps } from './examples/selfContained/Modal.js';
+import { ModalProps } from './examples/selfContained/Modal.js';
 import { NavDrawerSelfContained, NavDrawerSelfContainedSource, NavDrawerProps } from './examples/selfContained/NavDrawer.js';
 import { CardSelfContained, CardSelfContainedSource, CardProps } from './examples/selfContained/Card.js';
 import { CodeHighlighterSelfContained, CodeHighlighterSelfContainedSource, CodeHighlighterProps } from './examples/selfContained/CodeHighlighter.js';
@@ -48,7 +48,7 @@ export function getTitle (pathname) {
       ];
       break;
     case '/docs/navdrawer':
-      activeTitle = 'NavDrawer';
+      activeTitle = 'Navdrawer';
       activeSource = [
         NavDrawerSelfContainedSource,
         NavDrawerControlledSource,
@@ -76,7 +76,7 @@ export function getTitle (pathname) {
       ];
       break;
     case '/docs/codehighlighter':
-      activeTitle = 'CodeHighlighter';
+      activeTitle = 'Codehighlighter';
       activeSource = [
         CodeHighlighterSelfContainedSource
       ];
@@ -116,7 +116,7 @@ export function getTitle (pathname) {
     case '/docs/modal':
       activeTitle = 'Modal';
       activeSource = [
-        ModalSelfContainedSource,
+        null,
         ModalControlledSource,
         ModalAnimatedSource
       ]

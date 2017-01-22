@@ -1,7 +1,7 @@
 import React from 'react';
 import { css, StyleSheet } from 'aphrodite';
 import { getTitle } from './../../utils.js';
-import { CodeHighlighter } from 'rad-codehighlighter';
+import { Codehighlighter } from 'rad-codehighlighter';
 import './../../highlighter.css';
 
 const styles = StyleSheet.create({
@@ -119,14 +119,14 @@ class ViewSource extends React.Component {
               <h2 className={css(styles.viewHeader)}>{`<Props>`}</h2>
               <h2 className={css(styles.show)} onClick={this.props.showPropsInfo}>&#x025B4;</h2>
             </div>
-            <CodeHighlighter className={css(styles.highlight)}
+            <Codehighlighter className={css(styles.highlight)}
                              language="javascript"
                              plugins={[{
                                title: "line-numbers",
                                func: lineNumbers
                              }]}>
 {activeInfo.activeProps}
-            </CodeHighlighter>
+            </Codehighlighter>
           </div>
         </div>
       )
@@ -145,14 +145,14 @@ class ViewSource extends React.Component {
               <h2 className={css(styles.editorTabText)}>Animated {activeInfo.activeTitle}.js</h2>
             </div>
           </div>
-          <CodeHighlighter className={css(styles.highlight)}
+          <Codehighlighter className={css(styles.highlight)}
                            language="javascript"
                            plugins={[{
                              title: "line-numbers",
                              func: lineNumbers
                            }]}>
 {activeInfo.activeSource[this.props.selectedComponent]}
-          </CodeHighlighter>
+          </Codehighlighter>
         </div>
         <div className={css(styles.viewProps)}>
           <div className={css(styles.propsHeader)}>

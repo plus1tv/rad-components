@@ -1,12 +1,11 @@
 import React from 'react';
-import { CodeHighlighter } from 'rad-codehighlighter';
+import { Codehighlighter } from 'rad-codehighlighter';
 import './../../highlighter.css';
 
-export function CodeHighlighterSelfContained (props) {
+export function CodeHighlighterSelfContained(props) {
   return (
-    <CodeHighlighter language="javascript">
-      {
-`
+    <Codehighlighter language="javascript">
+      {`
 <Router>
   <div className={css(styles.container)}>
     <Match exactly pattern='/' component={Home}/>
@@ -16,21 +15,19 @@ export function CodeHighlighterSelfContained (props) {
     <Footer />
   </div>
 </Router>
-`
-      }
-    </CodeHighlighter>
+`}
+    </Codehighlighter>
   );
 }
 
-export var CodeHighlighterSelfContainedSource =
-`
+export var CodeHighlighterSelfContainedSource = `
 import React from 'react';
-import { CodeHighlighter } from 'radcomponents';
+import { Codehighlighter } from 'radcomponents';
 import './../RADHighlighterTheme.css';
 
 export function CodeHighlighterSelfContained (props) {
   return (
-    <CodeHighlighter language="javascript">
+    <Codehighlighter language="javascript">
       {
           \`
           <Router>
@@ -44,13 +41,12 @@ export function CodeHighlighterSelfContained (props) {
           </Router>
           \`
       }
-    </CodeHighlighter>
+    </Codehighlighter>
   );
 }
 `;
 
-export var CodeHighlighterProps =
-`
+export var CodeHighlighterProps = `
 Card.propTypes = {
   width: React.PropTypes.number,
   height: React.PropTypes.number,

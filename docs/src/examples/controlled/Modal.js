@@ -1,30 +1,39 @@
 import React, { Component } from 'react';
 import { Modal } from 'rad-modal';
 
-const Opener = (props) => <button>Im Controlled</button>;
-
+// const Opener = props => <button>Im Controlled</button>;
 export class ModalControlled extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
-    this.state = {
-      isOpen: false,
-    };
+    this.state = { isOpen: false };
   }
-  openModal () {
+  openModal() {
     alert('Do something when you open the <Modal />');
-    this.setState((prevState, currProps) => ({isOpen: true}));
+    this.setState((prevState, currProps) => ({ isOpen: true }));
   }
 
-  closeModal () {
+  closeModal() {
     alert('Do something when you close the <Modal />');
-    this.setState((prevState, currProps) => ({isOpen: false}));
+    this.setState((prevState, currProps) => ({ isOpen: false }));
   }
 
-  render () {
+  render() {
     return (
       <div>
-        <button onClick={(this.state.isOpen) ? this.closeModal.bind(this) : this.openModal.bind(this)}>I'm controlled</button>
-        <Modal openModal={() => this.openModal()} closeModal={() => this.closeModal()} isOpen={this.state.isOpen}>
+        <button
+          onClick={
+            this.state.isOpen
+              ? this.closeModal.bind(this)
+              : this.openModal.bind(this)
+          }
+        >
+          I'm controlled
+        </button>
+        <Modal
+          openModal={() => this.openModal()}
+          closeModal={() => this.closeModal()}
+          isOpen={this.state.isOpen}
+        >
           <h2>This Modal is Pretty Rad!?!?</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -36,8 +45,12 @@ export class ModalControlled extends Component {
             officia deserunt mollit anim id est laborum.
           </p>
           <div>
-            <button style={{width: 120, height: 30, borderRadius: 0}}>Do Something</button>
-            <button style={{width: 120, height: 30, borderRadius: 0}}>Do Something Else</button>
+            <button style={{ width: 120, height: 30, borderRadius: 0 }}>
+              Do Something
+            </button>
+            <button style={{ width: 120, height: 30, borderRadius: 0 }}>
+              Do Something Else
+            </button>
           </div>
         </Modal>
       </div>
@@ -45,33 +58,41 @@ export class ModalControlled extends Component {
   }
 }
 
-export var ModalControlledSource =
-`import React, { Component } from 'react';
-import { Modal } from 'radcomponents';
+export var ModalControlledSource = `import React, { Component } from 'react';
+import { Modal } from 'rad-modal';
 
-const Opener = (props) => <button>Im Controlled</button>;
-
-class ModalControlled extends Component {
-  constructor (props) {
+export class ModalControlled extends Component {
+  constructor(props) {
     super(props);
-    this.state = {
-      isOpen: false,
-    };
+    this.state = { isOpen: false };
   }
-  openModal () {
+  openModal() {
     alert('Do something when you open the <Modal />');
-    this.setState((prevState, currProps) => ({isOpen: true}));
+    this.setState((prevState, currProps) => ({ isOpen: true }));
   }
 
-  closeModal () {
+  closeModal() {
     alert('Do something when you close the <Modal />');
-    this.setState((prevState, currProps) => ({isOpen: false}));
+    this.setState((prevState, currProps) => ({ isOpen: false }));
   }
 
-  render () {
+  render() {
     return (
       <div>
-        <Modal ModalOpener={Opener} openModal={() => this.openModal()} closeModal={() => this.closeModal()} isOpen={this.state.isOpen}>
+        <button
+          onClick={
+            this.state.isOpen
+              ? this.closeModal.bind(this)
+              : this.openModal.bind(this)
+          }
+        >
+          I'm controlled
+        </button>
+        <Modal
+          openModal={() => this.openModal()}
+          closeModal={() => this.closeModal()}
+          isOpen={this.state.isOpen}
+        >
           <h2>This Modal is Pretty Rad!?!?</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -83,8 +104,12 @@ class ModalControlled extends Component {
             officia deserunt mollit anim id est laborum.
           </p>
           <div>
-            <button style={{width: 120, height: 30, borderRadius: 0}}>Do Something</button>
-            <button style={{width: 120, height: 30, borderRadius: 0}}>Do Something Else</button>
+            <button style={{ width: 120, height: 30, borderRadius: 0 }}>
+              Do Something
+            </button>
+            <button style={{ width: 120, height: 30, borderRadius: 0 }}>
+              Do Something Else
+            </button>
           </div>
         </Modal>
       </div>

@@ -2,42 +2,47 @@ import React from 'react';
 import Anime from 'react-anime';
 import { Navbar, Navbrand, NavItemsLeft, NavItemsRight } from 'rad-navbar';
 
-export function NavbarAnimated (props) {
+export function NavbarAnimated(props) {
   return (
     <Navbar>
-      <Anime easing="linear"
-         autoplay={true}
-         duration={300}
-         delay={() => 0}
-         translateX={[-100, 0]}>
-        <a to="/">
-          <Navbrand title="SomeApp"/>
-        </a>
+      <Anime
+        easing="linear"
+        autoplay={true}
+        duration={300}
+        delay={() => 0}
+        translateX={[ -100, 0 ]}
+      >
+        <Navbrand>
+          <a to="/">Brand</a>
+        </Navbrand>
       </Anime>
-        <NavItemsLeft>
-          <Anime easing="linear"
-             autoplay={true}
-             duration={300}
-             delay={() => 0}
-             translateY={[100, 0]}>
-            <a>itemLeft1</a>
-          </Anime>
-        </NavItemsLeft>
-        <NavItemsRight>
-          <Anime easing="linear"
-             autoplay={true}
-             duration={300}
-             delay={() => 0}
-             translateY={[-100, 0]}>
-            <a>itemRight1</a>
-          </Anime>
-        </NavItemsRight>
+      <NavItemsLeft>
+        <Anime
+          easing="linear"
+          autoplay={true}
+          duration={300}
+          delay={() => 0}
+          translateY={[ 100, 0 ]}
+        >
+          <a>itemLeft1</a>
+        </Anime>
+      </NavItemsLeft>
+      <NavItemsRight>
+        <Anime
+          easing="linear"
+          autoplay={true}
+          duration={300}
+          delay={() => 0}
+          translateY={[ -100, 0 ]}
+        >
+          <a>itemRight1</a>
+        </Anime>
+      </NavItemsRight>
     </Navbar>
   );
 }
 
-export var NavbarAnimatedSource =
-`
+export var NavbarAnimatedSource = `
 import React from 'react';
 import { Navbar, NavItemsLeft, NavItemsRight } from 'radcomponents';
 

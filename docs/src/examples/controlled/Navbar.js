@@ -24,9 +24,9 @@ export class NavbarControlled extends Component {
       <Navbar showMenu={this.state.showMenu}
               openMenu={() => this.openMenu()}
               closeMenu={() => this.closeMenu()}>
-        <a to="/">
-          <Navbrand title="SomeApp"/>
-        </a>
+        <Navbrand>
+          <a to="/">Brand</a>
+        </Navbrand>
         <NavItemsLeft>
           <a>itemLeft1</a>
         </NavItemsLeft>
