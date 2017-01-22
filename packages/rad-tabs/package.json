@@ -1,6 +1,6 @@
 {
   "name": "rad-tabs",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "rad-tabs component",
   "main": "dist/Tabs.min.js",
   "repository": "https://github.com/hyperfuse/library-starter.git",

@@ -1,6 +1,6 @@
 {
   "name": "rad-codehighlighter",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "rad-codehighlighter component",
   "main": "dist/Codehighlighter.min.js",
   "repository": "https://github.com/hyperfuse/library-starter.git",
