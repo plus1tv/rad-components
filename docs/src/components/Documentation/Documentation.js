@@ -3,7 +3,7 @@ import Match from 'react-router/Match';
 import Link from 'react-router/Link';
 import { css, StyleSheet } from 'aphrodite';
 import Anime from 'react-anime';
-import Highlight from 'react-highlight';
+import {Codehighlighter} from 'rad-codehighlighter';
 import Docnav from './Docnav.js';
 import ViewSource from './ViewSource.js';
 import ViewComponent from './ViewComponent.js';
@@ -216,7 +216,7 @@ class Documentation extends React.Component {
                     <p>To get up and running with this library first do the following</p>
                     <code>npm install --save radcomponents</code>
                     <br />
-                    <Highlight className="javascript">
+                    <Codehighlighter language="javascript">
                     {`
     import React from 'react';
     import { Tabs, Tab } from 'radcomponents';
@@ -239,7 +239,7 @@ class Documentation extends React.Component {
       );
     \}
                     `}
-                    </Highlight>
+                    </Codehighlighter>
                   </div>
                 </div>
             </Anime>
