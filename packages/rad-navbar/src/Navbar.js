@@ -45,7 +45,7 @@ export class Navbar extends Component {
           showMenu: false
         }));
       }
-    } else if (this.props.closeMenu){
+    } else if (this.props.closeMenu) {
       if (
         this.state.width > (this.props.breakPoint || 767) && this.props.showMenu
       ) {
