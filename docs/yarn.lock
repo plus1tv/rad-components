@@ -4274,9 +4274,9 @@ rad-modal@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/rad-modal/-/rad-modal-0.0.6.tgz#79d7dd7d257e50339420a89c5a002575dcf4046c"
 
-rad-navbar@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/rad-navbar/-/rad-navbar-0.0.6.tgz#e103c80b31ed0edfbfdb61db0128771286477f8b"
+rad-navbar@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/rad-navbar/-/rad-navbar-0.0.7.tgz#847d9da844cc04b070b9f6a258a0d53e4ba40980"
 
 rad-navdrawer@^0.0.6:
   version "0.0.6"
