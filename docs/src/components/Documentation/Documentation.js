@@ -137,11 +137,11 @@ class Documentation extends React.Component {
     return (
       <div style={{width: '100%', overflow: 'hidden'}}>
         <Navbar breakPoint={1030}>
-          <Link to="/">
-            <Navbrand>
+          <Navbrand>
+            <Link to="/">
               <Logo />
-            </Navbrand>
-          </Link>
+            </Link>
+          </Navbrand>
           <NavItemsMenu>
             <h1 className={css(styles.drawerDocs)}>Docs</h1>
               <span><Link className={css(styles.listItem)} to={`/docs`}>Getting Started</Link></span>

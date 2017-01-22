@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal } from './../../packages/rad-modal/dist/Modal.js';
+import { Modal } from 'rad-modal';
 
 export default class Test extends Component {
   constructor (props) {
