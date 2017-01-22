@@ -1,6 +1,6 @@
 {
   "name": "rad-components",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "All rad-components",
   "main": "/dist/Components.min.js",
   "repository": "https://github.com/hyperfuse/library-starter.git",
@@ -45,7 +45,7 @@
     "rad-card": "^0.0.6",
     "rad-codehighlighter": "^0.0.6",
     "rad-modal": "^0.0.6",
-    "rad-navbar": "^0.0.6",
+    "rad-navbar": "^0.0.7",
     "rad-navdrawer": "^0.0.6",
     "rad-notification": "^0.0.6",
     "rad-popover": "^0.0.6",
