@@ -18,8 +18,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    margin: 0,
-    marginTop: '80px',
+    margin: '80px 0',
     overflow: 'hidden',
   },
   intro: {
