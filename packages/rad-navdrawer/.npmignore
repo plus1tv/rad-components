@@ -1,0 +1,14 @@
+__tests__
+coverage
+docs
+assets
+src
+.babelrc
+.eslintrc
+.flowconfig
+webpack.*.js
+rollup.config.js
+.travis.yml
+.vscode
+example
+license.md
