@@ -62,6 +62,7 @@ export function CardHeader(props: CardHeaderProps) {
       ...((props.style && props.style.cardHeader) ? props.style.cardHeader : {})
     },
     avatar: {
+      display: 'flex',
       alignSelf: 'center',
       borderRadius: '50%',
       width: props.avatarHeight || 40,
@@ -91,11 +92,11 @@ export function CardHeader(props: CardHeaderProps) {
   };
 
   return (
-    <div styles={styles.CardHeader}>
-      <img styles={styles.avatar} src={props.avatar} />
-      <div styles={styles.headerContent}>
-        <p styles={styles.title}>{props.title}</p>
-        <p styles={styles.subtitle}>{props.subtitle}</p>
+    <div style={styles.CardHeader}>
+      <img style={styles.avatar} src={props.avatar} />
+      <div style={styles.headerContent}>
+        <p style={styles.title}>{props.title}</p>
+        <p style={styles.subtitle}>{props.subtitle}</p>
       </div>
     </div>
   );

@@ -164,58 +164,24 @@ export class Navbar extends Component {
 
 export type NavbrandProps = {
   className?: string,
-  logo?: string,
-  logoWidth?: string | number,
-  logoHeight?: string | number,
-  title?: string,
   children: any
 };
 
 export function Navbrand(props: NavbrandProps) {
   const styles = {
-    Navbrand: { display: 'flex', alignItems: 'center', margin: '0 30px' },
-    logo: {
-      width: props.logoWidth || 80,
-      height: props.logoHeight || 50,
-      margin: '0 30px'
-    },
-    title: { fontWeight: 700, fontSize: 24, color: '#333', margin: '0 30px' }
+    Navbrand: { display: 'flex', alignItems: 'center', margin: '0 30px' }
   };
-  if (props.children) {
-    return (
-      <div
-        type="Navbrand"
-        style={styles.Navbrand}
-        className={props.className || ''}
-      >
-        {props.children}
-      </div>
-    );
-  }
-  if (props.logo && props.title && !props.children) {
-    return (
-      <div style={styles.Navbrand} className={props.className || ''}>
-        <img style={styles.logo} src={props.logo} />
-        <p style={styles.title}>{props.title}</p>
-      </div>
-    );
-  }
-
-  if (!props.logo && !props.children && props.title) return (
-      <p style={styles.title} className={props.className || ''}>
-        {props.title}
-      </p>
-    );
-
-  if (props.logo && !props.children && !props.title)
-    return (
-      <img
-        style={styles.logo}
-        className={props.className || ''}
-        src={props.logo}
-      />
-    );
+  return (
+    <div
+      type="Navbrand"
+      style={styles.Navbrand}
+      className={props.className || ''}
+    >
+      {props.children}
+    </div>
+  );
 }
+
 
 export type NavDrawerProps = {
   showMenu?: boolean,

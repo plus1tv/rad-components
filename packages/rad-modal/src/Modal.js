@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 
-type ModalProps = {
+export type ModalProps = {
   className?: string,
   width?: string | number,
   height?: string | number,
@@ -11,7 +11,7 @@ type ModalProps = {
   children: any
 };
 
-class Modal extends Component {
+export class Modal extends Component {
   props: ModalProps;
   escToggle: Function;
 
@@ -74,5 +74,3 @@ class Modal extends Component {
     return null;
   }
 }
-
-export default Modal;

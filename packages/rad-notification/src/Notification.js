@@ -5,7 +5,7 @@ export type NotificationProps = {
   className?: string,
   width?: string | number,
   height?: string | number,
-  showNotification?: boolean,
+  showNotification: boolean,
   dismiss: Function,
   notiPlacement?: 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight',
   borderHighlight: string,
@@ -13,7 +13,7 @@ export type NotificationProps = {
   children: any
 };
 
-export default function Notification(props: NotificationProps) {
+export function Notification(props: NotificationProps) {
   const styles = {
     topLeft: { position: 'fixed', left: 0, top: 0 },
     topRight: { position: 'fixed', right: 0, top: 0 },

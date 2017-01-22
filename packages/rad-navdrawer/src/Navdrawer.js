@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 
-type NavdrawerProps = {
+export type NavdrawerProps = {
   showMenu?: boolean,
   openMenu?: Function,
   closeMenu?: Function,
@@ -10,7 +10,7 @@ type NavdrawerProps = {
   placement: 'right' | 'left'
 };
 
-type NavdrawerState = { showMenu: boolean };
+export type NavdrawerState = { showMenu: boolean };
 
 export class Navdrawer extends Component {
   props: NavdrawerProps;

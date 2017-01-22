@@ -1,38 +1,38 @@
 import React, { Component } from 'react';
-import { NavDrawer } from 'rad-navdrawer';
+import { Navdrawer } from 'rad-navdrawer';
+
 export class NavDrawerControlled extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
-    this.state = {
-      showMenu: false,
-    }
+    this.state = { showMenu: false };
   }
 
-  openMenu () {
+  openMenu() {
     alert('Do something when you open the menu');
-    this.setState((prevState) => ({showMenu: true}));
+    this.setState(prevState => ({ showMenu: true }));
   }
 
-  closeMenu () {
+  closeMenu() {
     alert('Do something when you close the menu');
-    this.setState((prevState) => ({showMenu: false}));
+    this.setState(prevState => ({ showMenu: false }));
   }
 
-  render () {
+  render() {
     return (
-      <NavDrawer placement="right"
-                 showMenu={this.state.showMenu}
-                 openMenu={() => this.openMenu()}
-                 closeMenu={() => this.closeMenu()}>
+      <Navdrawer
+        placement="right"
+        showMenu={this.state.showMenu}
+        openMenu={() => this.openMenu()}
+        closeMenu={() => this.closeMenu()}
+      >
         <p>1</p>
         <p>2</p>
-      </NavDrawer>
+      </Navdrawer>
     );
   }
 }
 
-export var NavDrawerControlledSource =
-`
+export var NavDrawerControlledSource = `
 import React, { Component } from 'react';
 import { NavDrawer } from 'radcomponents';
 
@@ -55,13 +55,13 @@ export class NavDrawerControlled extends Component {
 
   render () {
     return (
-      <NavDrawer placement="right"
+      <Navdrawer placement="right"
                  showMenu={showMenu}
                  openMenu={() => this.openMenu()}
                  closeMenu={() => this.closeMenu()}>
         <p>1</p>
         <p>2</p>
-      </NavDrawer>
+      </Navdrawer>
     );
   }
 }

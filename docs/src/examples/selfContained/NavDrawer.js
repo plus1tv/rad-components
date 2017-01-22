@@ -1,12 +1,12 @@
 import React from 'react';
-import { NavDrawer } from 'rad-navdrawer';
+import { Navdrawer } from 'rad-navdrawer';
 
 export function NavDrawerSelfContained (props) {
   return (
-    <NavDrawer placement="right">
+    <Navdrawer placement="right">
       <p>1</p>
       <p>2</p>
-    </NavDrawer>
+    </Navdrawer>
   );
 }
 
@@ -17,10 +17,10 @@ import { NavDrawer } from 'radcomponents';
 
 function NavDrawerSelfContained (props) {
   return (
-    <NavDrawer placement="right">
+    <Navdrawer placement="right">
       <p>1</p>
       <p>2</p>
-    </NavDrawer>
+    </Navdrawer>
   );
 }
 `;

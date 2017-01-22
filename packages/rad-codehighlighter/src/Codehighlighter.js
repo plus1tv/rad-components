@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import Prism from 'prismjs';
 
-export type CodeHighlighterProps = {
+export type CodehighlighterProps = {
   className?: string,
   language: string,
   plugins?: {
@@ -11,8 +11,8 @@ export type CodeHighlighterProps = {
   children: any
 };
 
-export class CodeHighlighter extends PureComponent {
-  props: CodeHighlighterProps;
+export class Codehighlighter extends PureComponent {
+  props: CodehighlighterProps;
   prismNode: any;
 
   componentDidMount() {
