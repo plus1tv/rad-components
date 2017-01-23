@@ -9,6 +9,11 @@ export type NavbarProps = {
   closeMenu?: Function,
   height?: string | number,
   shadow?: string,
+  styles?: {
+    navbar?: Object,
+    navbtn?: Object,
+    navdrawer?: { navMenu?: Object, navMenuBtn?: Object, navExitBtn?: Object }
+  },
   children: any
 };
 
@@ -64,24 +69,53 @@ export class Navbar extends Component {
 
   render() {
     const styles = {
-      Navbar: {
+      navbar: {
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
         width: '100%',
         backgroundColor: this.props.backgroundColor || '#fff',
         minHeight: this.props.height || 60,
-        maxHeight: this.props.height || 64,
+        maxHeight: this.props.height || 94,
         boxShadow: this.props.shadow ||
           `0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)`,
         position: 'fixed',
-        zIndex: 1000
+        zIndex: 1000,
+        ...(this.props.styles && this.props.styles.navbar
+          ? this.props.styles.navbar
+          : {})
       },
-      NavDrawer: {
+      navbtn: {
         display: 'flex',
         marginRight: 30,
-        fontSize: 28,
-        marginLeft: 'auto'
+        marginLeft: 'auto',
+        ...(this.props.styles && this.props.styles.navbtn
+          ? this.props.styles.navbtn
+          : {})
+      },
+      navdrawer: {
+        navMenu: {
+          backgroundColor: '#fff',
+          ...(this.props.styles &&
+            this.props.styles.navdrawer &&
+            this.props.styles.navdrawer.navMenu
+            ? this.props.styles.navdrawer.navMenu
+            : {})
+        },
+        navMenuBtn: {
+          ...(this.props.styles &&
+            this.props.styles.navdrawer &&
+            this.props.styles.navdrawer.navMenuBtn
+            ? this.props.styles.navdrawer.navMenuBtn
+            : {})
+        },
+        navExitBtn: {
+          ...(this.props.styles &&
+            this.props.styles.navdrawer &&
+            this.props.styles.navdrawer.navExitBtn
+            ? this.props.styles.navdrawer.navExitBtn
+            : {})
+        }
       }
     };
     let children = [];
@@ -91,23 +125,18 @@ export class Navbar extends Component {
     }
     if (this.state.width <= (this.props.breakPoint || 767)) {
       return (
-        <div style={styles.Navbar} className={this.props.className || ''}>
+        <div style={styles.navbar} className={this.props.className || 'navbar'}>
           {children.map((child: any, key: number) => {
-              if (
-                child.type.name === 'Navbrand' || child.type.name === 'Link'
-              ) {
-                return React.cloneElement(child, {
-                  key,
-                  width: this.state.width
-                });
+              if (child.type.name === 'Navbrand') {
+                return child;
               }
             })}
           {
             this.props.showMenu === undefined ||
               !this.props.closeMenu ||
               !this.props.openMenu
-              ? <div style={styles.NavDrawer}>
-                <NavDrawer>
+              ? <div style={styles.navbtn}>
+                <NavDrawer styles={styles.navdrawer}>
                   {children.map((child: any, key: number) => {
                       if (
                         child.type.name !== 'Navbrand' ||
@@ -122,8 +151,10 @@ export class Navbar extends Component {
                     })}
                 </NavDrawer>
               </div>
-              : <div style={styles.NavDrawer}>
+              : <div style={styles.navbtn}>
                 <NavDrawer
+                  className="navdrawer"
+                  styles={styles.navdrawer}
                   showMenu={this.props.showMenu}
                   closeMenu={this.props.closeMenu}
                   openMenu={this.props.openMenu}
@@ -147,55 +178,27 @@ export class Navbar extends Component {
       );
     }
     return (
-      <div style={styles.Navbar} className={this.props.className || ''}>
-        {children.map((child: any, key: number) => {
-            if (child.type.name !== 'NavItemsMenu') {
-              return React.cloneElement(child, {
-                key,
-                width: this.state.width,
-                breakPoint: this.props.breakPoint
-              });
-            }
-          })}
+      <div style={styles.navbar} className={this.props.className || 'navbar'}>
+        {this.props.children}
       </div>
     );
   }
 }
 
-export type NavbrandProps = {
+type NavDrawerProps = {
   className?: string,
-  children: any
-};
-
-export function Navbrand(props: NavbrandProps) {
-  const styles = {
-    Navbrand: { display: 'flex', alignItems: 'center', margin: '0 30px' }
-  };
-  return (
-    <div
-      type="Navbrand"
-      style={styles.Navbrand}
-      className={props.className || ''}
-    >
-      {props.children}
-    </div>
-  );
-}
-
-
-export type NavDrawerProps = {
   showMenu?: boolean,
   openMenu?: Function,
   closeMenu?: Function,
   menuIcon?: any,
   closeIcon?: any,
-  placement?: 'right' | 'left',
-  children?: any
+  children?: any,
+  styles?: { navMenu?: Object, navMenuBtn?: Object, navExitBtn?: Object }
 };
 
-export type NavDrawerState = { showMenu: boolean };
+type NavDrawerState = { showMenu: boolean };
 
-export class NavDrawer extends Component {
+class NavDrawer extends Component {
   props: NavDrawerProps;
   state: NavDrawerState;
   _showMenu: Function;
@@ -215,9 +218,10 @@ export class NavDrawer extends Component {
 
   render() {
     const styles = {
-      menuLeft: { position: 'absolute', left: 0, top: 0 },
-      menuRight: { position: 'absolute', right: 0, top: 0 },
-      NavMenu: {
+      navMenu: {
+        position: 'absolute',
+        right: 0,
+        top: 0,
         width: 300,
         display: 'flex',
         marginLeft: 'auto',
@@ -228,75 +232,46 @@ export class NavDrawer extends Component {
         boxShadow: this.props.shadow ||
           `0 0px 3px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24)`,
         backgroundColor: '#fff',
-        zIndex: 1500
+        zIndex: 1500,
+        ...(this.props.styles ? this.props.styles.navMenu : {})
       },
-      NavMenuBtn: { display: 'flex', fontSize: 28 },
-      ExitMenu: {
+      navMenuBtn: {
+        display: 'flex',
+        fontSize: 28,
+        ...(this.props.styles ? this.props.styles.navMenuBtn : {})
+      },
+      navExitBtn: {
         display: 'flex',
         marginRight: 30,
         fontSize: 28,
-        marginLeft: 'auto'
+        marginLeft: 'auto',
+        ...(this.props.styles ? this.props.styles.navExitBtn : {})
       }
     };
-    let children = [];
-    if (this.props.children) {
-      if (Array.isArray(this.props.children)) children = this.props.children;
-      else children = [ this.props.children ];
-    }
     if (this.props.showMenu || this.state.showMenu) {
-      if (this.props.placement === 'left') {
-        return (
-          <div
-            style={{ ...styles.NavMenu, ...styles.menuLeft }}
-            className={this.props.className || ''}
-          >
-            <p
-              onClick={
-                e =>
-                  this.props.closeMenu
-                    ? this.props.closeMenu()
-                    : this._showMenu()
-              }
-              style={styles.ExitMenu}
-            >
-              {this.props.closeIcon || <span>&times;</span>}
-            </p>
-            {children.map((child: any, key: number) => {
-                if (
-                  child.type.name !== 'Navbrand' || child.type.name !== 'Link'
-                ) {
-                  return React.cloneElement(child, { key });
-                }
-              })}
-          </div>
-        );
-      }
       return (
         <div
-          style={{ ...styles.NavMenu, ...styles.menuRight }}
-          className={this.props.className || ''}
+          style={styles.navMenu}
+          className={this.props.className || 'navdrawer'}
         >
           <p
             onClick={
               e =>
                 this.props.closeMenu ? this.props.closeMenu() : this._showMenu()
             }
-            style={styles.ExitMenu}
+            style={styles.navExitBtn}
           >
             {this.props.closeIcon || <span>&times;</span>}
           </p>
-          {children.map((child: any, key: number) => {
-              if (
-                child.type.name !== 'Navbrand' || child.type.name !== 'Link'
-              ) {
-                return React.cloneElement(child, { key });
-              }
-            })}
+          {this.props.children}
         </div>
       );
     }
     return (
-      <div style={styles.NavMenuBtn}>
+      <div
+        style={styles.navMenuBtn}
+        className={this.props.className || 'navdrawer'}
+      >
         <p
           onClick={
             e => this.props.openMenu ? this.props.openMenu() : this._showMenu()
@@ -309,142 +284,113 @@ export class NavDrawer extends Component {
   }
 }
 
+export type NavbrandProps = {
+  className?: string,
+  children: any,
+  styles?: Object
+};
+
+export function Navbrand(props: NavbrandProps) {
+  const styles = {
+    Navbrand: {
+      display: 'flex',
+      alignItems: 'center',
+      margin: '0 30px',
+      ...(props.styles ? props.styles : {})
+    }
+  };
+  return (
+    <div
+      type="Navbrand"
+      style={styles.Navbrand}
+      className={props.className || 'navbrand'}
+    >
+      {props.children}
+    </div>
+  );
+}
+
 export type NavItemsLeftProps = {
   className?: string,
   width: number,
   breakPoint?: number,
-  style?: Object
+  styles?: { navItems?: Object, navItemsSmall?: Object },
+  children: any
 };
 
 export function NavItemsLeft(props: NavItemsLeftProps) {
   const styles = {
-    navItemsLeft: {
+    navItems: {
       display: 'flex',
       margin: 0,
       marginRight: 'auto',
       marginLeft: 30,
       padding: 0,
-      ...(props.style && props.style.navItemsLeft
-        ? props.style.navItemsLeft
-        : {})
+      ...(props.styles && props.styles.navItems ? props.styles.navItems : {})
     },
-    navItemsLeftSmall: {
+    navItemsSmall: {
       display: 'flex',
       flexDirection: 'column',
       margin: 0,
       padding: 0,
-      ...(props.style && props.style.navItemsLeftSmall
-        ? props.style.navItemsLeftSmall
+      ...(props.styles && props.styles.navItemsSmall
+        ? props.styles.navItemsSmall
         : {})
-    },
-    navItem: { listStyle: 'none', margin: 0, margin: '0px 15px', fontSize: 18 }
+    }
   };
-
-  let children = [];
-  if (props.children) {
-    if (Array.isArray(props.children)) children = props.children;
-    else children = [ props.children ];
-  }
-
-  if (props.width <= (props.breakPoint || 767)) {
-    return (
-      <ul style={styles.navItemsLeftSmall} className={props.className}>
-        {children.map((child: any, key: number) => (
-            <li key={key} style={styles.navItem}>
-              {React.cloneElement(child, { key: key })}
-            </li>
-          ))}
-      </ul>
-    );
-  }
-
   return (
-    <ul style={styles.navItemsLeft} className={props.className}>
-      {children.map((child: any, key: number) => (
-          <li key={key} style={styles.navItem}>
-            {React.cloneElement(child, { key: key })}
-          </li>
-        ))}
-    </ul>
-  );
-}
-
-export type NavItemsMenuProps = { className: string };
-
-export function NavItemsMenu(props: NavItemsMenuProps) {
-  const styles = {
-    navItemsMenu: { display: 'flex', flexDirection: 'column', padding: 0 },
-    navItem: { listStyle: 'none', margin: '0 15px', fontSize: 18 }
-  };
-
-  let children = [];
-  if (props.children) {
-    if (Array.isArray(props.children)) children = props.children;
-    else children = [ props.children ];
-  }
-
-  return (
-    <ul style={styles.navItemsMenu} className={props.className}>
-      {children.map((child: any, key: number) => (
-          <li key={key} style={styles.navItem}>
-            {React.cloneElement(child, { key: key })}
-          </li>
-        ))}
-    </ul>
+    <div
+      style={
+        props.width <= (props.breakPoint || 767)
+          ? styles.navItemsSmall
+          : styles.navItems
+      }
+      className={props.className || 'navItemsleft'}
+    >
+      {props.children}
+    </div>
   );
 }
 
 export type NavItemsRightProps = {
   className?: string,
   width: number,
-  breakPoint?: number
+  breakPoint?: number,
+  styles?: { navItems?: Object, navItemsSmall?: Object },
+  children: any
 };
 
 export function NavItemsRight(props: NavItemsRightProps) {
   const styles = {
-    NavItemsRight: {
+    navItems: {
       display: 'flex',
       margin: 0,
       marginLeft: 'auto',
       marginRight: 30,
-      padding: 0
+      padding: 0,
+      ...(props.styles && props.styles.navItems ? props.styles.navItems : {})
     },
-    NavItemsRightSmall: {
+    navItemsSmall: {
       display: 'flex',
       flexDirection: 'column',
       margin: 0,
-      padding: 0
-    },
-    navItem: { listStyle: 'none', margin: 0, margin: '0px 15px', fontSize: 18 }
+      padding: 0,
+      ...(props.styles && props.styles.navItemsSmall
+        ? props.styles.navItemsSmall
+        : {})
+    }
   };
 
-  let children = [];
-  if (props.children) {
-    if (Array.isArray(props.children)) children = props.children;
-    else children = [ props.children ];
-  }
-
-  children.map((child: any, key: number) => child);
-
-  if (props.width <= (props.breakPoint || 767)) {
-    return (
-      <ul style={styles.NavItemsRightSmall} className={props.className || ''}>
-        {children.map((child: any, key: number) => (
-            <li key={key} style={styles.navItem}>
-              {React.cloneElement(child, { key: key })}
-            </li>
-          ))}
-      </ul>
-    );
-  }
-
   return (
-    <div style={styles.NavItemsRight} className={props.className}>
-      {children.map((child: any, key: number) => (
-          <li key={key} style={styles.navItem}>
-            {React.cloneElement(child, { key: key })}
-          </li>
-        ))}
+    <div
+      style={
+        props.width <= (props.breakPoint || 767)
+          ? styles.navItemsSmall
+          : styles.navItems
+      }
+      className={props.className || 'navItemsright'}
+    >
+      {props.children}
     </div>
   );
 }

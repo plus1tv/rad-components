@@ -10,6 +10,12 @@ export type NotificationProps = {
   notiPlacement?: 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight',
   borderHighlight: string,
   backgroundColor?: string,
+  styles?: {
+    notification?: Object,
+    dismiss?: Object,
+    centerContainer?: Object,
+    notificationDismissed?: Object
+  },
   children: any
 };
 
@@ -19,7 +25,7 @@ export function Notification(props: NotificationProps) {
     topRight: { position: 'fixed', right: 0, top: 0 },
     bottomLeft: { position: 'fixed', left: 0, bottom: 0 },
     bottomRight: { position: 'fixed', right: 0, bottom: 0 },
-    Notification: {
+    notification: {
       display: 'flex',
       padding: 8,
       margin: 25,
@@ -27,7 +33,10 @@ export function Notification(props: NotificationProps) {
       height: props.height || 80,
       borderLeft: `5px solid ${props.borderHighlight}`,
       backgroundColor: props.background || '#fff',
-      boxShadow: `0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)`
+      boxShadow: `0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)`,
+      ...(props.styles && props.styles.notification
+        ? props.styles.notification
+        : {})
     },
     dismiss: {
       display: 'flex',
@@ -42,33 +51,44 @@ export function Notification(props: NotificationProps) {
       textAlign: 'center',
       border: 'none',
       color: '#dad8d8',
-      backgroundColor: 'transparent'
+      backgroundColor: 'transparent',
+      ...(props.styles && props.styles.dismiss ? props.styles.dismiss : {})
     },
     centerContainer: {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      width: '100%'
+      width: '100%',
+      ...(props.styles && props.styles ? props.styles : {})
     },
-    NotificationDismissed: { display: 'none', visibility: 'none' }
+    notificationDismissed: {
+      display: 'none',
+      visibility: 'none',
+      ...(props.styles && props.styles.notificationDismissed
+        ? props.styles.notificationDismissed
+        : {})
+    }
   };
   return (
     <div
-      className={props.className || ''}
       style={
         props.showNotification
           ? props.notiPlacement === 'topLeft'
-            ? { ...styles.topLeft, ...styles.Notification }
+            ? { ...styles.topLeft, ...styles.notification }
             : props.notiPlacement === 'topRight'
-              ? { ...styles.topRight, ...styles.Notification }
+              ? { ...styles.topRight, ...styles.notification }
               : props.notiPlacement === 'bottomLeft'
-                ? { ...styles.bottomLeft, ...styles.Notification }
-                : { ...styles.bottomRight, ...styles.Notification }
-          : styles.NotificationDismissed
+                ? { ...styles.bottomLeft, ...styles.notification }
+                : { ...styles.bottomRight, ...styles.notification }
+          : styles.notificationDismissed
       }
+      className={props.className || 'notification'}
     >
-      <div style={styles.centerContainer}>
+      <div
+        style={styles.centerContainer}
+        className={props.className || 'notification'}
+      >
         {props.children}
       </div>
       <button style={styles.dismiss} onClick={() => props.dismiss()}>

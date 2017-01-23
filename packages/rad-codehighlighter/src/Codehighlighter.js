@@ -32,7 +32,7 @@ export class Codehighlighter extends PureComponent {
 
   render () {
     return (
-      <pre className={(this.props.plugins) ? this.props.plugins.map((plugin) => plugin.title).join(" ") : ''}
+      <pre className={(this.props.plugins) ? this.props.plugins.map((plugin) => plugin.title).join(" ") : 'codehighlighter'}
            data-line={this.props.dataLine || ''}
            data-dependecies={this.props.dataDependecies || ''}
            data-user={this.props.dataUser || ''}

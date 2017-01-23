@@ -11,7 +11,13 @@ export type PopoverProps = {
   popeeHeight?: string | number,
   popeeWidth?: string | number,
   menu: Function | any,
-  style?: Object
+  styles?: {
+    popee?: Object,
+    popover?: Object,
+    popoverClosed?: Object,
+    popoverItem?: Object
+  },
+  children?: any
 };
 
 export type State = { isOpen: boolean };
@@ -57,12 +63,14 @@ export class Popover extends Component {
 
   render() {
     const styles = {
-      container: this.props.container || {},
       popee: {
         padding: 0,
         margin: 0,
         height: this.props.popeeHeight,
-        width: this.props.poperHeight || 30
+        width: this.props.poperHeight || 30,
+        ...(this.props.styles && this.props.styles.popee
+          ? this.props.styles.popee
+          : {})
       },
       popover: {
         display: 'flex',
@@ -77,23 +85,28 @@ export class Popover extends Component {
         margin: 2,
         backgroundColor: this.props.backgroundColor || '#fff',
         boxShadow: `0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)`,
-        zIndex: 20
+        zIndex: 20,
+        ...(this.props.styles && this.props.styles.popover
+          ? this.props.styles.popover
+          : {})
       },
-      popoverClosed: { display: 'none' },
-      popoverItem: { margin: 5 }
+      popoverClosed: {
+        display: 'none',
+        ...(this.props.styles && this.props.styles.popoverClosed
+          ? this.props.styles.popoverClosed
+          : {})
+      },
+      popoverItem: {
+        margin: 5,
+        ...(this.props.styles && this.props.styles.popoverItem
+          ? this.props.styles.popoverItem
+          : {})
+      }
     };
-
-    let children = [];
-
-    if (this.props.children) {
-      if (Array.isArray(this.props.children)) children = this.props.children;
-      else children = [ this.props.children ];
-    }
 
     return (
       <div
-        className={this.props.className || ''}
-        style={styles.container}
+        className={this.props.className || 'popover'}
         ref={popover => this.popover = popover}
       >
         <div
@@ -110,13 +123,7 @@ export class Popover extends Component {
           <this.props.Menu />
         </div>
         {this.props.isOpen || this.state.isOpen ? <ul style={styles.popover}>
-              {children.map((child: any, key: number) => {
-                  return (
-                    <li key={key} style={styles.popoverItem}>
-                      {React.cloneElement(child)}
-                    </li>
-                  );
-                })}
+              {this.props.children}
             </ul> : null}
       </div>
     );

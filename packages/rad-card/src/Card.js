@@ -8,7 +8,7 @@ export type CardProps = {
   shadow?: string,
   backgroundColor?: string,
   styles?: Object,
-  children: Object
+  children: any
 };
 
 export function Card(props: CardProps) {
@@ -26,7 +26,7 @@ export function Card(props: CardProps) {
   };
 
   return (
-    <div style={styles}>
+    <div style={styles} className={props.className || ''}>
       {props.children}
     </div>
   );
@@ -42,24 +42,26 @@ export type CardHeaderProps = {
   avatarWidth?: number,
   titleSize?: number,
   subtitleSize?: number,
-  style?: {
+  styles?: {
     cardHeader?: Object,
     avatar?: Object,
     headerContent?: Object,
     title?: Object,
-    subtitle?: Object,
+    subtitle?: Object
   }
 };
 
 export function CardHeader(props: CardHeaderProps) {
   const styles = {
-    CardHeader: {
+    cardHeader: {
       display: 'flex',
       justifyContent: 'flex-start',
       width: '100%',
       height: props.height || 50,
       padding: '10px 0',
-      ...((props.style && props.style.cardHeader) ? props.style.cardHeader : {})
+      ...(props.styles && props.styles.cardHeader
+        ? props.styles.cardHeader
+        : {})
     },
     avatar: {
       display: 'flex',
@@ -68,31 +70,33 @@ export function CardHeader(props: CardHeaderProps) {
       width: props.avatarHeight || 40,
       height: props.avatarWidth || 40,
       margin: '0 15px',
-      ...((props.style && props.style.avatar) ? props.style.avatar : {})
+      ...(props.styles && props.styles.avatar ? props.styles.avatar : {})
     },
     headerContent: {
       display: 'flex',
-      alignSelf: 'center',
       flexDirection: 'column',
-      ...((props.style && props.style.headerContent) ? props.style.headerContent : {})
+      justifyContent: 'center',
+      ...(props.styles && props.styles.headerContent
+        ? props.styles.headerContent
+        : {})
     },
     title: {
       margin: '1px 0',
       fontSize: props.titleSize || 16,
       fontWeight: 600,
       color: '#333',
-      ...((props.style && props.style.title) ? props.style.title : {})
+      ...(props.styles && props.styles.title ? props.styles.title : {})
     },
     subtitle: {
       margin: '1px 0',
       fontSize: props.subtitleSize || 14,
       color: '#dddddd',
-      ...((props.style && props.style.subtitle) ? props.style.subtitle : {})
+      ...(props.styles && props.styles.subtitle ? props.styles.subtitle : {})
     }
   };
 
   return (
-    <div style={styles.CardHeader}>
+    <div style={styles.cardHeader} className={props.className || ''}>
       <img style={styles.avatar} src={props.avatar} />
       <div style={styles.headerContent}>
         <p style={styles.title}>{props.title}</p>
@@ -103,16 +107,23 @@ export function CardHeader(props: CardHeaderProps) {
 }
 
 export type CardMediaProps = {
+  className?: string,
   width?: string | number,
   height?: string | number,
-  media?: string,
+  img?: string,
   backgroundColor?: string,
   overlay?: { title: string, subtitle: string },
   overlayHeight?: number,
   overlyTitleSize?: number,
   overlayTitleColor?: string,
   overlaySubtitleSize?: number,
-  overlaySubtitleColor?: string
+  overlaySubtitleColor?: string,
+  styles?: {
+    media?: Object,
+    overlay?: Object,
+    title?: Object,
+    subtitle?: Object
+  }
 };
 
 export function CardMedia(props: CardMediaProps) {
@@ -123,7 +134,8 @@ export function CardMedia(props: CardMediaProps) {
       height: props.height,
       backgroundColor: props.backgroundColor || '#fff',
       zIndex: 1,
-      position: 'relative'
+      position: 'relative',
+      ...(props.styles && props.styles.media ? props.styles.media : {})
     },
     overlay: {
       display: 'flex',
@@ -133,30 +145,33 @@ export function CardMedia(props: CardMediaProps) {
       width: '100%',
       height: props.overlayHeight || 40,
       backgroundColor: 'rgba(0, 0, 0, 0.541176)',
-      marginTop: (props.overlayHeight ? -props.overlayHeight - 10 : -50),
+      marginTop: props.overlayHeight ? -props.overlayHeight - 10 : -50,
       padding: '5px 0',
       zIndex: 20,
-      position: 'relative'
+      position: 'relative',
+      ...(props.styles && props.styles.overlay ? props.styles.overlay : {})
     },
     title: {
       fontSize: props.overlyTitleSize || 16,
       color: props.overlayTitleColor || '#fff',
       margin: 0,
-      marginLeft: 10
+      marginLeft: 10,
+      ...(props.styles && props.styles.title ? props.styles.title : {})
     },
     subtitle: {
       fontSize: props.overlaySubtitleSize || 14,
       color: props.overlaySubtitleColor || '#dbdbdb',
       margin: 0,
-      marginLeft: 10
+      marginLeft: 10,
+      ...(props.styles && props.styles.subtitle ? props.styles.subtitle : {})
     }
   };
 
-  if (!props.overlay) return <img style={styles.media} src={props.media} />;
+  if (!props.overlay) return <img style={styles.media} src={props.img} />;
 
   return (
-    <div className={props.className ? props.className : ''}>
-      <img style={styles.media} src={props.media} />
+    <div className={props.className || ''}>
+      <img style={styles.media} src={props.img} />
       <div style={styles.overlay}>
         <p style={styles.title}>{props.overlay.title}</p>
         <p style={styles.subtitle}>{props.overlay.subtitle}</p>

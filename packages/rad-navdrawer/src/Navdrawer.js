@@ -7,7 +7,9 @@ export type NavdrawerProps = {
   closeMenu?: Function,
   menuIcon?: any,
   closeIcon?: any,
-  placement: 'right' | 'left'
+  placement: 'right' | 'left',
+  styles?: { navMenu?: Object, navMenuBtn?: Object, navExitBtn?: Object },
+  children: any
 };
 
 export type NavdrawerState = { showMenu: boolean };
@@ -45,75 +47,56 @@ export class Navdrawer extends Component {
         boxShadow: this.props.shadow ||
           `0 0px 3px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24)`,
         backgroundColor: '#fff',
-        zIndex: 1500
+        zIndex: 1500,
+        ...(this.props.styles && this.props.styles.navMenu
+          ? this.props.styles.navMenu
+          : {})
       },
-      NavMenuBtn: { display: 'flex', fontSize: 28 },
-      ExitMenu: {
+      navMenuBtn: {
+        display: 'flex',
+        fontSize: 28,
+        ...(this.props.styles && this.props.styles.navMenuBtn
+          ? this.props.styles.navMenuBtn
+          : {})
+      },
+      navExitBtn: {
         display: 'flex',
         marginRight: 30,
         fontSize: 28,
-        marginLeft: 'auto'
+        marginLeft: 'auto',
+        ...(this.props.styles && this.props.styles.navExitBtn
+          ? this.props.styles.navExitBtn
+          : {})
       }
     };
-    let children = [];
-    if (this.props.children) {
-      if (Array.isArray(this.props.children)) children = this.props.children;
-      else children = [ this.props.children ];
-    }
     if (this.props.showMenu || this.state.showMenu) {
-      if (this.props.placement === 'left') {
-        return (
-          <div
-            style={{ ...styles.NavMenu, ...styles.menuLeft }}
-            className={this.props.className || ''}
-          >
-            <p
-              onClick={
-                e =>
-                  this.props.closeMenu
-                    ? this.props.closeMenu()
-                    : this._showMenu()
-              }
-              style={styles.ExitMenu}
-            >
-              {this.props.closeIcon || <span>&times;</span>}
-            </p>
-            {children.map((child: any, key: number) => {
-                if (
-                  child.type.name !== 'Navbrand' || child.type.name !== 'Link'
-                ) {
-                  return React.cloneElement(child, { key });
-                }
-              })}
-          </div>
-        );
-      }
       return (
         <div
-          style={{ ...styles.NavMenu, ...styles.menuRight }}
-          className={this.props.className || ''}
+          style={
+            this.props.placement === 'left'
+              ? { ...styles.NavMenu, ...styles.menuLeft }
+              : { ...styles.NavMenu, ...styles.menuRight }
+          }
+          className={this.props.className || 'navdrawer'}
         >
           <p
             onClick={
               e =>
                 this.props.closeMenu ? this.props.closeMenu() : this._showMenu()
             }
-            style={styles.ExitMenu}
+            style={styles.navExitBtn}
           >
             {this.props.closeIcon || <span>&times;</span>}
           </p>
-          {children.map((child: any, key: number) => {
-              if (
-                child.type.name !== 'Navbrand' || child.type.name !== 'Link'
-              ) {
-                return React.cloneElement(child, { key });
-              }
-            })}
+          {this.props.children}
         </div>
       );
     }
     return (
-      <div style={styles.NavMenuBtn}>
+      <div
+        style={styles.navMenuBtn}
+        className={this.props.className || 'navdrawer'}
+      >
         <p
           onClick={
             e => this.props.openMenu ? this.props.openMenu() : this._showMenu()

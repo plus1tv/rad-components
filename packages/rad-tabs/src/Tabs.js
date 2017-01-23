@@ -12,6 +12,7 @@ export type TabsProps = {
   onTabClick?: Function,
   activeTab?: number,
   showTab?: Function,
+  styles?: { tabs?: Object, tabsList?: Object, tabItem?: Object },
   children: any
 };
 
@@ -22,7 +23,7 @@ export class Tabs extends Component {
   state: State;
   constructor(props: TabsProps) {
     super(props);
-    if (!props.activeTab || !props.showTab) {
+    if (!typeof(props.activeTab) !== 'number' || !props.showTab) {
       this.state = { activeTab: 0 };
     }
   }
@@ -35,16 +36,19 @@ export class Tabs extends Component {
 
   render() {
     const styles = {
-      tabsContainer: {
+      tabs: {
         display: 'flex',
         flexDirection: 'column',
         width: this.props.width || 400,
         height: this.props.height || 300,
         backgroundColor: this.props.backGroundColor || '#fff',
         boxShadow: this.props.shadow ||
-          `0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)`
+          `0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)`,
+        ...(this.props.styles && this.props.styles.tabs
+          ? this.props.styles.tabs
+          : {})
       },
-      tabs: {
+      tabsList: {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
@@ -57,7 +61,10 @@ export class Tabs extends Component {
         listStyle: 'none',
         backgroundColor: '#fff',
         boxShadow: this.props.shadow ||
-          `0 1px 2px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.14)`
+          `0 1px 2px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.14)`,
+        ...(this.props.styles && this.props.styles.tabsList
+          ? this.props.styles.tabsList
+          : {})
       },
       tabItem: {
         display: 'flex',
@@ -66,7 +73,10 @@ export class Tabs extends Component {
         width: '100%',
         margin: 0,
         padding: 0,
-        height: this.props.tabHeight || 70
+        height: this.props.tabHeight || 70,
+        ...(this.props.styles && this.props.styles.tabItem
+          ? this.props.styles.tabItem
+          : {})
       }
     };
 
@@ -77,8 +87,8 @@ export class Tabs extends Component {
     }
 
     return (
-      <div className={this.props.className || ''} style={styles.tabsContainer}>
-        <ul style={styles.tabs}>
+      <div style={styles.tabs} className={this.props.className || 'tabs'}>
+        <ul style={styles.tabsList}>
           {children.map((child, key) => (
               <li
                 onClick={
@@ -106,11 +116,11 @@ export class Tabs extends Component {
   }
 }
 
-export type TabProps = { className: string, label: string, children: any };
+export type TabProps = { className?: string, label: string, children: any };
 
 export function Tab(props: TabProps) {
   return (
-    <div className={props.className ? props.className : ''}>
+    <div className={props.className ? props.className : 'tab'}>
       {props.children}
     </div>
   );

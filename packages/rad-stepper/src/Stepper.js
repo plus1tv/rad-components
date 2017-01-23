@@ -7,8 +7,17 @@ export type StepperProps = {
   activeStep?: number,
   seperatorSize?: string | number,
   stepIndexColor?: string,
-  children: any,
-  style?: Object
+  styles?: {
+    hStepList?: Object,
+    vStepList?: Object,
+    hStepItem?: Object,
+    vStepItem?: Object,
+    hstepLead?: Object,
+    stepIndex?: Object,
+    vStepLead?: Object,
+    vStepLast?: Object
+  },
+  children: any
 };
 
 export type State = {
@@ -25,7 +34,13 @@ export class Stepper extends Component {
 
   constructor(props: StepperProps) {
     super(props);
-    if (!props.showStep || !props.activeStep) {
+    if (props.showStep && typeof props.activeStep === 'number') {
+      this.state = {
+        height: window.innerHeight,
+        width: window.innerWidth,
+        horizontal: window.innerWidth > (props.breakPoint || 767) ? true : false
+      };
+    } else {
       this.state = {
         height: window.innerHeight,
         width: window.innerWidth,
@@ -34,19 +49,13 @@ export class Stepper extends Component {
           : false,
         activeStep: 0
       };
-    } else {
-      this.state = {
-        height: window.innerHeight,
-        width: window.innerWidth,
-        horizontal: window.innerWidth > (props.breakPoint || 767) ? true : false
-      };
     }
     this.handleResize = this.handleResize.bind(this);
   }
 
-  handleResize(e: any) {
+  handleResize(e: any): void {
     if (this.state.width <= (this.props.breakPoint || 767)) {
-      this.setState((prevState, currProps) => ({
+      this.setState((prevState: State, currProps: StepperProps) => ({
         height: window.innerHeight,
         width: window.innerWidth,
         horizontal: false
@@ -54,7 +63,7 @@ export class Stepper extends Component {
     }
 
     if (this.state.width > (this.props.breakPoint || 767)) {
-      this.setState((prevState, currProps) => ({
+      this.setState((prevState: State, currProps: StepperProps) => ({
         height: window.innerHeight,
         width: window.innerWidth,
         horizontal: true
@@ -62,49 +71,64 @@ export class Stepper extends Component {
     }
   }
 
-  showStep(step: number) {
+  showStep(step: number): void {
     this.setState((prevState: State, currProps: StepperProps) => ({
       activeStep: step
     }));
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     window.addEventListener('resize', this.handleResize);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     window.removeEventListener('resize', this.handleResize);
   }
   render() {
     const styles = {
-      Hstepper: { display: 'flex', flexDirection: 'column' },
-      Vstepper: { display: 'flex', flexDirection: 'row' },
+      hStepper: { display: 'flex', flexDirection: 'column' },
+      vStepper: { display: 'flex', flexDirection: 'row' },
       hStepList: {
         margin: 0,
         padding: 0,
         display: 'flex',
         flexDirection: 'row',
-        listStyle: 'none'
+        ...(this.props && this.props.styles && this.props.styles.hStepList
+          ? this.props.styles.hStepList
+          : {})
       },
       vStepList: {
-        display: 'flex',
-        flexDirection: 'column',
-        listStyle: 'none'
+        listStyle: 'none',
+        ...(this.props.styles && this.props.styles.vStepList
+          ? this.props.styles.vStepList
+          : {})
       },
-      stepItem: { display: 'flex', alignItems: 'center' },
+      hStepItem: {
+        display: 'flex',
+        alignItems: 'center',
+        ...(this.props.styles && this.props.styles.hStepItem
+          ? this.props.styles.hStepItem
+          : {})
+      },
       vStepItem: {
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        ...(this.props.styles && this.props.styles.vStepItem
+          ? this.props.styles.vStepItem
+          : {})
       },
       vIndexNLabel: { display: 'flex' },
-      stepLead: {
+      hstepLead: {
         margin: 10,
         display: 'block',
         borderTop: 'solid',
         borderTopWidth: '1px',
         borderColor: '#d9d9d9',
-        width: this.props.seperatorSize || 200
+        width: this.props.seperatorSize || 200,
+        ...(this.props.styles && this.props.styles.hstepLead
+          ? this.props.styles.hstepLead
+          : {})
       },
       stepIndex: {
         display: 'flex',
@@ -115,16 +139,29 @@ export class Stepper extends Component {
         width: 30,
         backgroundColor: this.props.stepIndexColor || '#FF9EF8',
         marginRight: 10,
-        color: '#fff'
+        color: '#fff',
+        ...(this.props.styles && this.props.styles.stepIndex
+          ? this.props.styles.stepIndex
+          : {})
       },
-      vStepLead: { margin: 10, padding: 10, borderLeft: '1px solid #d9d9d9' },
+      vStepLead: {
+        margin: 10,
+        padding: 10,
+        borderLeft: '1px solid #d9d9d9',
+        ...(this.props.styles && this.props.styles.vStepLead
+          ? this.props.styles.vStepLead
+          : {})
+      },
       vStepLast: {
         margin: 10,
         padding: 10,
-        borderLeft: '1px solid transparent'
+        borderLeft: '1px solid transparent',
+        ...(this.props.styles && this.props.styles.vStepLast
+          ? this.props.styles.vStepLast
+          : {})
       }
     };
-    let children = [];
+    let children: [any] = [];
     if (this.props.children) {
       if (Array.isArray(this.props.children)) children = this.props.children;
       else children = [ this.props.children ];
@@ -132,27 +169,9 @@ export class Stepper extends Component {
 
     if (this.state.horizontal) {
       return (
-        <div style={styles.Hstepper}>
+        <div style={styles.hStepper} className={this.props.className || 'stepper'}>
           <ul style={styles.hStepList}>
             {children.map((child: any, key: number) => {
-                if (key === 0) {
-                  return (
-                    <li
-                      onClick={
-                        e =>
-                          this.props.showStep
-                            ? this.props.showStep(key)
-                            : this.showStep(key)
-                      }
-                      key={key}
-                      key={key}
-                      style={styles.stepItem}
-                    >
-                      <p style={styles.stepIndex}>{key + 1}</p>
-                      <p>{child.props.label}</p>
-                    </li>
-                  );
-                }
                 return (
                   <li
                     onClick={
@@ -162,9 +181,9 @@ export class Stepper extends Component {
                           : this.showStep(key)
                     }
                     key={key}
-                    style={styles.stepItem}
+                    style={styles.hStepItem}
                   >
-                    <span style={styles.stepLead} />
+                    {key === 0 ? null : <span style={styles.hstepLead} />}
                     <p style={styles.stepIndex}>{key + 1}</p>
                     <p>{child.props.label}</p>
                   </li>
@@ -172,7 +191,7 @@ export class Stepper extends Component {
               })}
           </ul>
           {
-            this.props.activeStep != undefined
+            typeof this.props.activeStep === 'number'
               ? children[this.props.activeStep]
               : children[this.state.activeStep]
           }
@@ -180,7 +199,7 @@ export class Stepper extends Component {
       );
     }
     return (
-      <div style={styles.Vstepper}>
+      <div style={styles.vStepper} className={this.props.className || 'stepper'}>
         <ul style={styles.vStepList}>
           {children.map((child: any, key: number) => {
               return (
@@ -198,27 +217,23 @@ export class Stepper extends Component {
                     <p style={styles.stepIndex}>{key + 1}</p>
                     <p>{child.props.label}</p>
                   </div>
-                  {
-                    key === children.length - 1
-                      ? this.state.activeStep === key
-                        ? <div style={styles.vStepLast}>
-                          {
-                            this.props.activeStep != undefined
-                              ? children[this.props.activeStep]
-                              : children[this.state.activeStep]
-                          }
-                        </div>
-                        : null
-                      : <div style={styles.vStepLead}>
+                  {key === children.length - 1 ? <div style={styles.vStepLast}>
                         {
                           this.props.activeStep === key
-                            ? children[this.state.activeStep]
+                            ? children[this.props.activeStep]
                             : this.state.activeStep === key
                               ? children[this.state.activeStep]
                               : null
                         }
-                      </div>
-                  }
+                      </div> : <div style={styles.vStepLead}>
+                        {
+                          this.props.activeStep === key
+                            ? children[this.props.activeStep]
+                            : this.state.activeStep === key
+                              ? children[this.state.activeStep]
+                              : null
+                        }
+                      </div>}
                 </li>
               );
             })}
@@ -232,7 +247,7 @@ export type StepProps = { className?: string, children: any };
 
 export function Step(props: StepProps) {
   return (
-    <div className={props.className ? props.className : ''}>
+    <div className={props.className ? props.className : 'step'}>
       {props.children}
     </div>
   );

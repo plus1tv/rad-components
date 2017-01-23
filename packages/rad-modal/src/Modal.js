@@ -7,7 +7,7 @@ export type ModalProps = {
   height?: string | number,
   openModal: Function,
   closeModal: Function,
-  isOpen: bool,
+  isOpen: boolean,
   children: any
 };
 
@@ -15,7 +15,7 @@ export class Modal extends Component {
   props: ModalProps;
   escToggle: Function;
 
-  componentDidMount (): void {
+  componentDidMount(): void {
     window.addEventListener('keydown', this.escToggle.bind(this));
   }
 
@@ -23,14 +23,25 @@ export class Modal extends Component {
     window.removeEventListener('keydown', this.escToggle.bind(this));
   }
 
-  escToggle (e: any): void {
+  escToggle(e: any): void {
     if (e.keyCode == 27 && this.props.isOpen) {
       this.props.closeModal();
     }
   }
 
-  render () {
+  render() {
     const styles = {
+      container: {
+        width: '100%',
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        zIndex: 1500
+      },
       modalCover: {
         width: '100vw',
         height: '100vh',
@@ -39,9 +50,7 @@ export class Modal extends Component {
         alignItems: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0.4)',
         position: 'fixed',
-        top: 0,
-        left: 0,
-        zIndex: 10001,
+        zIndex: 10001
       },
       modal: {
         display: 'flex',
@@ -50,25 +59,31 @@ export class Modal extends Component {
         height: this.props.height || 460,
         backgroundColor: '#fff',
         border: `1px solid rgb(136, 136, 136)`,
-        zIndex: 10002,
-        padding: 30,
+        zIndex: 15000,
+        padding: 30
       },
       close: {
         alignSelf: 'flex-end',
         fontSize: 28,
         fontWeight: 100,
         color: '#b0b0b0',
-        margin: 0,
+        margin: 0
       }
     };
     if (this.props.isOpen) {
       return (
-          <div onClick={() => this.props.closeModal()} style={styles.modalCover}>
-            <div style={styles.modal}>
-              <p onClick={() => (this.props.closeModal())} style={styles.close}>&times;</p>
-              {this.props.children}
-            </div>
+        <div style={styles.container} className={this.props.className || ''}>
+          <div
+            onClick={() => this.props.closeModal()}
+            style={styles.modalCover}
+          />
+          <div style={styles.modal}>
+            <p onClick={() => this.props.closeModal()} style={styles.close}>
+              ×
+            </p>
+            {this.props.children}
           </div>
+        </div>
       );
     }
     return null;

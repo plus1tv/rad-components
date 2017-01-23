@@ -1,44 +1,39 @@
-import React, { Component } from 'react';
-import { Modal } from 'rad-modal';
+import React from 'react';
+import { Tabs, Tab } from './../../packages/rad-tabs/dist/Tabs.js';
 
-export default class Test extends Component {
+export default class TabsControlled extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      isOpen: false,
+      activeTab: 0
     };
   }
-  openModal () {
-    alert('Do something when you open the <Modal />');
-    this.setState((prevState, currProps) => ({isOpen: true}));
-  }
 
-  closeModal () {
-    alert('Do something when you close the <Modal />');
-    this.setState((prevState, currProps) => ({isOpen: false}));
+  showTab (tabIndex) {
+    alert('do something when you click a <Tab />');
+    this.setState((prevState) => ({activeTab: tabIndex}));
   }
 
   render () {
     return (
-      <div>
-        <button onClick={(this.state.isOpen) ? this.closeModal.bind(this) : this.openModal.bind(this)}>I'm controlled</button>
-        <Modal openModal={() => this.openModal()} closeModal={() => this.closeModal()} isOpen={this.state.isOpen}>
-          <h2>This Modal is Pretty Rad!?!?</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum.
-          </p>
-          <div>
-            <button style={{width: 120, height: 30, borderRadius: 0}}>Do Something</button>
-            <button style={{width: 120, height: 30, borderRadius: 0}}>Do Something Else</button>
+      <Tabs activeTab={this.state.activeTab} showTab={(index) => this.showTab(index)}>
+        <Tab label="RAD">
+          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <h3>Some RAD Content 1 </h3>
           </div>
-        </Modal>
-      </div>
+        </Tab>
+        <Tab label="Awesome">
+          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <h3>Some Awesome Content 2 </h3>
+          </div>
+        </Tab>
+
+        <Tab label="Interesting">
+          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+            <h3>Some Interesting Content 3 </h3>
+          </div>
+        </Tab>
+      </Tabs>
     );
   }
 }
