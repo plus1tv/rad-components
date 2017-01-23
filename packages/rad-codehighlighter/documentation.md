@@ -10,11 +10,11 @@ The rad-codehighlighter module exposes 1 component:
 ```js
 import { Codehighlighter } from 'rad-codehighlighter';
 ```
-### `<Card />` Props
+### `<Codehighlighter />` Props
 
 #### `className?: string`
 A css class you want to place on the component. If not passed it will
-default to `card`.
+default to `Codehighlighter`.
 
 #### `language?: string`
 The language you want to highlight.
