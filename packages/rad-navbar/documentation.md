@@ -100,16 +100,20 @@ Outputs:
   </span>
   <span>
 </p>
-<h3 style="margin: 5px 0 30px 0" align="center">Navbar After Breakpoint</h3>
+<h3 style="margin-bottom: 35px; margin-top: 3px;" align="center">Navbar</h3>
+
+
 <p style="display: flex; justify-content: space-around; align-items: center" align="center">
   <span>
     <img src="assets/navbarmenu.png"/>
   </span>
 </p>
-<h3 style="margin: 5px 0 30px 0" align="center">Navbar After Breakpoint</h3>
+<h3 style="margin-bottom: 35px; margin-top: 3px;" align="center">Navbar After Breakpoint</h3>
+
+
 <p style="display: flex; justify-content: space-around; align-items: center" align="center">
   <span>
     <img src="assets/navbarmenuopen.png"/>
   </span>
 </p>
-<h3 style="margin: 5px 0 30px 0" align="center">Navbar Open</h3>
+<h3 style="margin-bottom: 35px; margin-top: 3px;" align="center">Navbar Open</h3>
