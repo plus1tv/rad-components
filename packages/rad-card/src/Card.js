@@ -45,7 +45,6 @@ export type CardHeaderProps = {
   styles?: {
     cardHeader?: Object,
     avatar?: Object,
-    headerContent?: Object,
     title?: Object,
     subtitle?: Object
   }
@@ -75,10 +74,7 @@ export function CardHeader(props: CardHeaderProps) {
     headerContent: {
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center',
-      ...(props.styles && props.styles.headerContent
-        ? props.styles.headerContent
-        : {})
+      justifyContent: 'center'
     },
     title: {
       margin: '1px 0',
@@ -108,7 +104,6 @@ export function CardHeader(props: CardHeaderProps) {
 
 export type CardMediaProps = {
   className?: string,
-  width?: string | number,
   height?: string | number,
   img?: string,
   backgroundColor?: string,
@@ -130,7 +125,7 @@ export function CardMedia(props: CardMediaProps) {
   const styles = {
     media: {
       display: 'flex',
-      width: props.width || '100%',
+      width: '100%',
       height: props.height,
       backgroundColor: props.backgroundColor || '#fff',
       zIndex: 1,

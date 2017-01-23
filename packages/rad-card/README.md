@@ -5,13 +5,45 @@
 
 A simple card component that is small and easily extendable.
 
-## Usage
+## Install
 ```bash
 yarn add rad-card
 # OR
 npm install --save rad-card
 ```
 
+## Usage
+The rad-card module exposes 3 components:
+```js
+import { Card, CardHeader, CardMedia } from 'rad-card';
+```
+```js
+import { Card, CardHeader, CardMedia } from 'rad-card';
+
+function CardExample(props) {
+  return (
+    <Card>
+      <CardHeader
+        avatar="https://avatars2.githubusercontent.com/u/8888991?v=3&amp;s=400"
+        title="Kennet Postigo"
+        subtitle="Developer @Hyperfuse"
+      />
+      <CardMedia
+        media="https://9to5mac.files.wordpress.com/2013/09/rolling-waves.jpg"
+        overlay={{ title: 'Flowing In', subtitle: 'We Here' }}
+      />
+      <div style={{ margin: 10 }}>
+        <h3 style={{ margin: 4 }}>Hello Guys</h3>
+        <p style={{ margin: 2 }}>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore magna
+          aliqua. Ut enim ad.
+        </p>
+      </div>
+    </Card>
+  );
+}
+```
 ## Contributing
 To get started contributing make sure to do the following:
 
