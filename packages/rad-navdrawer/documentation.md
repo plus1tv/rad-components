@@ -16,25 +16,25 @@ import { Navdrawer } from 'rad-navdrawer';
 A css class you want to place on the component. If not passed it will
 default to `navdrawer`.
 
-### `showMenu?: boolean`
+#### `showMenu?: boolean`
 Boolean passed in that determines if the menu is visible.
 
-### `openMenu?: Function`
+#### `openMenu?: Function`
 Function that when called opens the menu.
 
-### `closeMenu?: Function`
+#### `closeMenu?: Function`
 Function that when called closes the menu.
 
-### `menuIcon?: any`
+#### `menuIcon?: any`
 Menu Icon for the navdrawer
 
-### `closeIcon?: any`
+#### `closeIcon?: any`
 Close icon that you want to appear.
 
-### `placement: 'right' | 'left'`
+#### `placement: 'right' | 'left'`
 Determines whether to appear on the left or right of the page.
 
-### `styles?: { navMenu?, navMenuBtn?, navExitBtn? }`
+#### `styles?: { navMenu?, navMenuBtn?, navExitBtn? }`
 The navMenu, navMenuBtn, navExitBtn fields within styles object are objects as
 well. The nested objects target specific elements css as their names should
 describe to you. Pass a styles object with the nested objects component and the
