@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 
 export type StepperProps = {
+  className?: string,
   breakPoint?: number,
   showStep?: Function,
   activeStep?: number,
