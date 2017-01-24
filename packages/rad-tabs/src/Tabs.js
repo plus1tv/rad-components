@@ -9,7 +9,6 @@ export type TabsProps = {
   shadow?: string,
   tabColor?: string,
   tabHeight?: number,
-  onTabClick?: Function,
   activeTab?: number,
   showTab?: Function,
   styles?: { tabs?: Object, tabsList?: Object, tabItem?: Object },
