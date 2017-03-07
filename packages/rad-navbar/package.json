@@ -1,6 +1,6 @@
 {
   "name": "rad-navbar",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "rad-navbar component",
   "main": "dist/Navbar.min.js",
   "repository": "https://github.com/hyperfuse/library-starter.git",
@@ -14,7 +14,9 @@
     "watch": "cross-env NODE_ENV=development rollup -c ./rollup.config.js -w",
     "test": "BABEL_ENV=test && jest --no-cache",
     "coverage": "jest && codecov",
-    "test:watch": "jest --converage --watch"
+    "test:watch": "jest --converage --watch",
+    "yis": "yarn",
+    "yup": "yarn upgrade"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",
