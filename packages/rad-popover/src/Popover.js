@@ -110,21 +110,21 @@ export class Popover extends Component {
         ref={popover => this.popover = popover}
       >
         <div
-          onClick={
-            () =>
-              this.props.openPopover
-                ? this.props.isOpen
+          onClick={() =>
+            this.props.openPopover
+              ? this.props.isOpen
                   ? this.props.closePopover()
                   : this.props.openPopover()
-                : this.toggle()
-          }
+              : this.toggle()}
           style={styles.popee}
         >
           <this.props.Menu />
         </div>
-        {this.props.isOpen || this.state.isOpen ? <ul style={styles.popover}>
+        {this.props.isOpen || this.state.isOpen
+          ? <ul style={styles.popover}>
               {this.props.children}
-            </ul> : null}
+            </ul>
+          : null}
       </div>
     );
   }

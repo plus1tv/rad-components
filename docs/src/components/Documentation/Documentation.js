@@ -213,15 +213,14 @@ class Documentation extends React.Component {
           </NavItemsRight>
         </Navbar>
         <div className={css(styles.documentation)}>
-          {
-            this.state.open
-              ? <Anime
+          {this.state.open
+            ? <Anime
                 autoplay={
                   this.state.open && !this.state.sourceMounted ? true : false
                 }
                 easing="linear"
-                opacity={[ 0, 1 ]}
-                translateX={[ -200, 0 ]}
+                opacity={[0, 1]}
+                translateX={[-200, 0]}
                 duration={(e, i) => 550}
               >
                 <div className={css(styles.viewSource)}>
@@ -237,11 +236,11 @@ class Documentation extends React.Component {
                   />
                 </div>
               </Anime>
-              : <Anime
+            : <Anime
                 autoplay={this.state.navMounted ? false : true}
                 easing="linear"
-                opacity={[ 0, 1 ]}
-                translateX={[ -200, 0 ]}
+                opacity={[0, 1]}
+                translateX={[-200, 0]}
                 duration={(e, i) => 550}
               >
                 <div className={css(styles.Docnav)}>
@@ -250,46 +249,60 @@ class Documentation extends React.Component {
                     width={this.state.width}
                   />
                 </div>
-              </Anime>
-          }
+              </Anime>}
           <Match
             exactly
             pattern={this.props.pathname}
             render={() => (
-                <Anime
-                  easing="linear"
-                  opacity={[ 0, 1 ]}
-                  translateX={[ 200, 0 ]}
-                  duration={(e, i) => 550}
-                >
-                  <div className={css(styles.intro)}>
-                    <h1 className={css(styles.header)}>
-                      <span className={css(styles.rad)}>RAD</span>
-                      {' '}
-                      <span className={css(styles.components)}>COMPONENTS</span>
-                    </h1>
-                    <div className>
-                      <p style={{ fontSize: 15 }}>
-                        I made RAD COMPONENTS for myself and friends who didn't want
+              <Anime
+                easing="linear"
+                opacity={[0, 1]}
+                translateX={[200, 0]}
+                duration={(e, i) => 550}
+              >
+                <div className={css(styles.intro)}>
+                  <h1 className={css(styles.header)}>
+                    <span className={css(styles.rad)}>RAD</span>
+                    {' '}
+                    <span className={css(styles.components)}>COMPONENTS</span>
+                  </h1>
+                  <div className>
+                    <p style={{ fontSize: 15 }}>
+                      I made RAD COMPONENTS for myself and friends who didn't want
+
+
                       to continuously remake components we already made in the past. Just
+
+
                       like every all the other component library that has been made.
+
+
                       The main difference is the dripping swagu and RADness these components
+
+
                       bring to the table.
-                      </p>
-                      <p>
-                        This is the initial release of RADCOMPONENTS so there may be
+                    </p>
+                    <p>
+                      This is the initial release of RADCOMPONENTS so there may be
+
+
                       some bugs or issues we have to get rid of. Also if you find something
+
+
                       in the components that you think can be way more RAD then make a
+
+
                       RAD PULL REQUEST, we would love to make the world more RAD.
-                      </p>
-                      <h1 style={{ margin: 5 }}>Usage</h1>
-                      <p>
-                        To get up and running with this library first do the following
-                      </p>
-                      <code>npm install --save radcomponents</code>
-                      <br />
-                      <Codehighlighter language="javascript">
-                        {`
+                    </p>
+                    <h1 style={{ margin: 5 }}>Usage</h1>
+                    <p>
+                      To get up and running with this library first do the following
+                    </p>
+                    <code>npm install --save radcomponents</code>
+                    <br />
+                    <Codehighlighter language="javascript">
+                      {
+                        `
     import React from 'react';
     import { Tabs, Tab } from 'radcomponents';
 
@@ -305,33 +318,34 @@ class Documentation extends React.Component {
         </Tabs>
       );
     \}
-                    `}
-                      </Codehighlighter>
-                    </div>
+                    `
+                      }
+                    </Codehighlighter>
                   </div>
-                </Anime>
-              )}
+                </div>
+              </Anime>
+            )}
           />
           <Match
             pattern={`${this.props.pathname}/:rad`}
             render={() => (
-                <Anime
-                  autoplay={this.state.sourceMounted ? false : true}
-                  easing="linear"
-                  opacity={[ 0, 1 ]}
-                  translateX={[ 200, 0 ]}
-                  duration={(e, i) => 550}
-                >
-                  <div className={css(styles.viewComponent)}>
-                    <ViewComponent
-                      pathname={this.props.location}
-                      open={this.state.open}
-                      showSource={() => this.showSource()}
-                      selectedComponent={this.state.selectedComponent}
-                    />
-                  </div>
-                </Anime>
-              )}
+              <Anime
+                autoplay={this.state.sourceMounted ? false : true}
+                easing="linear"
+                opacity={[0, 1]}
+                translateX={[200, 0]}
+                duration={(e, i) => 550}
+              >
+                <div className={css(styles.viewComponent)}>
+                  <ViewComponent
+                    pathname={this.props.location}
+                    open={this.state.open}
+                    showSource={() => this.showSource()}
+                    selectedComponent={this.state.selectedComponent}
+                  />
+                </div>
+              </Anime>
+            )}
           />
         </div>
       </div>

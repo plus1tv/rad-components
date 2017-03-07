@@ -2,23 +2,24 @@ import React from 'react';
 import Anime from 'react-anime';
 import { Notification } from 'rad-notification';
 
-export function NotificationAnimated (props) {
+export function NotificationAnimated(props) {
   return (
     <Anime>
-      <Notification showNotification={true}
-                    notiPlacement="bottomLeft"
-                    borderHighlight="#FF9EF8">
+      <Notification
+        showNotification={true}
+        notiPlacement="bottomLeft"
+        borderHighlight="#FF9EF8"
+      >
         <div>
-          <h3 style={{margin: 2}}>Rad Notification Here!</h3>
-          <p style={{margin: 2}}>This is a sample Notification.</p>
+          <h3 style={{ margin: 2 }}>Rad Notification Here!</h3>
+          <p style={{ margin: 2 }}>This is a sample Notification.</p>
         </div>
       </Notification>
     </Anime>
   );
 }
 
-export var NotificationAnimatedSource =
-`
+export var NotificationAnimatedSource = `
 import React from 'react';
 import { Notification } from 'radcomponents';
 

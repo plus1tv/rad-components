@@ -2,28 +2,30 @@ import React, { Component } from 'react';
 import { Navbar, Navbrand, NavItemsRight, NavItemsLeft } from 'rad-navbar';
 
 export class NavbarControlled extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
-      showMenu: false,
-    }
+      showMenu: false
+    };
   }
 
-  openMenu () {
+  openMenu() {
     alert('Do something when you open the menu');
-    this.setState((prevState) => ({showMenu: true}));
+    this.setState(prevState => ({ showMenu: true }));
   }
 
-  closeMenu () {
+  closeMenu() {
     alert('Do something when you close the menu');
-    this.setState((prevState) => ({showMenu: false}));
+    this.setState(prevState => ({ showMenu: false }));
   }
 
-  render () {
+  render() {
     return (
-      <Navbar showMenu={this.state.showMenu}
-              openMenu={() => this.openMenu()}
-              closeMenu={() => this.closeMenu()}>
+      <Navbar
+        showMenu={this.state.showMenu}
+        openMenu={() => this.openMenu()}
+        closeMenu={() => this.closeMenu()}
+      >
         <Navbrand>
           <a to="/">Brand</a>
         </Navbrand>
@@ -38,8 +40,7 @@ export class NavbarControlled extends Component {
   }
 }
 
-export var NavbarControlledSource =
-`
+export var NavbarControlledSource = `
 import React, { Component } from 'react';
 import { Navbar, Navbrand, NavItemsRight, NavItemsLeft } from 'radcomponents';
 

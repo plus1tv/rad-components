@@ -13,20 +13,17 @@ if (process.env.NODE_ENV === 'production') {
 export default {
   entry: 'src/Modal.js',
   moduleName: 'RadModal',
-  targets: [ { dest: dest, format: 'umd' }, { dest: destES, format: 'es' } ],
+  targets: [{ dest: dest, format: 'umd' }, { dest: destES, format: 'es' }],
   sourceMap,
-  plugins: [
-    babel({
+  plugins: [babel({
       babelrc: true,
       externalHelpers: false,
       runtimeHelpers: false,
-      exclude: 'node_modules/**',
-    }),
-  ],
-  external: [
-    'react'
-  ],
+      exclude: 'node_modules/**'
+    })],
+  external: ['react', 'react-dom'],
   globals: {
-    'react': 'React',
-  },
-}
+    react: 'React',
+    'react-dom': 'react-dom'
+  }
+};

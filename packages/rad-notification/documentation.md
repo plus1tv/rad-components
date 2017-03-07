@@ -45,6 +45,8 @@ component and the component will combine and prioritize your styles.
 
 ### Sample Usage of Notification:
 ```js
+import { Notification } from 'rad-notification';
+
 class NotificationExample extends Component {
   constructor (props) {
     super(props);

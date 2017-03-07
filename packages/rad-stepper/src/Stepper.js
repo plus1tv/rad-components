@@ -45,9 +45,9 @@ export class Stepper extends Component {
       this.state = {
         height: window.innerHeight,
         width: window.innerWidth,
-        horizontal: window.innerWidth > (props.breakPoint || 767)
-          ? true
-          : false,
+        horizontal: (
+          window.innerWidth > (props.breakPoint || 767) ? true : false
+        ),
         activeStep: 0
       };
     }
@@ -165,79 +165,77 @@ export class Stepper extends Component {
     let children: [any] = [];
     if (this.props.children) {
       if (Array.isArray(this.props.children)) children = this.props.children;
-      else children = [ this.props.children ];
+      else children = [this.props.children];
     }
 
     if (this.state.horizontal) {
       return (
-        <div style={styles.hStepper} className={this.props.className || 'stepper'}>
+        <div
+          style={styles.hStepper}
+          className={this.props.className || 'stepper'}
+        >
           <ul style={styles.hStepList}>
             {children.map((child: any, key: number) => {
-                return (
-                  <li
-                    onClick={
-                      e =>
-                        this.props.showStep
-                          ? this.props.showStep(key)
-                          : this.showStep(key)
-                    }
-                    key={key}
-                    style={styles.hStepItem}
-                  >
-                    {key === 0 ? null : <span style={styles.hstepLead} />}
-                    <p style={styles.stepIndex}>{key + 1}</p>
-                    <p>{child.props.label}</p>
-                  </li>
-                );
-              })}
+              return (
+                <li
+                  onClick={e =>
+                    this.props.showStep
+                      ? this.props.showStep(key)
+                      : this.showStep(key)}
+                  key={key}
+                  style={styles.hStepItem}
+                >
+                  {key === 0 ? null : <span style={styles.hstepLead} />}
+                  <p style={styles.stepIndex}>{key + 1}</p>
+                  <p>{child.props.label}</p>
+                </li>
+              );
+            })}
           </ul>
-          {
-            typeof this.props.activeStep === 'number'
-              ? children[this.props.activeStep]
-              : children[this.state.activeStep]
-          }
+          {typeof this.props.activeStep === 'number'
+            ? children[this.props.activeStep]
+            : children[this.state.activeStep]}
         </div>
       );
     }
     return (
-      <div style={styles.vStepper} className={this.props.className || 'stepper'}>
+      <div
+        style={styles.vStepper}
+        className={this.props.className || 'stepper'}
+      >
         <ul style={styles.vStepList}>
           {children.map((child: any, key: number) => {
-              return (
-                <li
-                  onClick={
-                    e =>
-                      this.props.showStep
-                        ? this.props.showStep(key)
-                        : this.showStep(key)
-                  }
-                  key={key}
-                  style={styles.vStepItem}
-                >
-                  <div style={styles.vIndexNLabel}>
-                    <p style={styles.stepIndex}>{key + 1}</p>
-                    <p>{child.props.label}</p>
-                  </div>
-                  {key === children.length - 1 ? <div style={styles.vStepLast}>
-                        {
-                          this.props.activeStep === key
-                            ? children[this.props.activeStep]
-                            : this.state.activeStep === key
-                              ? children[this.state.activeStep]
-                              : null
-                        }
-                      </div> : <div style={styles.vStepLead}>
-                        {
-                          this.props.activeStep === key
-                            ? children[this.props.activeStep]
-                            : this.state.activeStep === key
-                              ? children[this.state.activeStep]
-                              : null
-                        }
-                      </div>}
-                </li>
-              );
-            })}
+            return (
+              <li
+                onClick={e =>
+                  this.props.showStep
+                    ? this.props.showStep(key)
+                    : this.showStep(key)}
+                key={key}
+                style={styles.vStepItem}
+              >
+                <div style={styles.vIndexNLabel}>
+                  <p style={styles.stepIndex}>{key + 1}</p>
+                  <p>{child.props.label}</p>
+                </div>
+                {key === children.length - 1
+                  ? <div style={styles.vStepLast}>
+                      {this.props.activeStep === key
+                        ? children[this.props.activeStep]
+                        : this.state.activeStep === key
+                            ? children[this.state.activeStep]
+                            : null}
+                    </div>
+                  : <div style={styles.vStepLead}>
+                      {this.props.activeStep === key
+                        ? children[this.props.activeStep]
+                        : this.state.activeStep === key
+                            ? children[this.state.activeStep]
+                            : null}
+                    </div>}
+              </li>
+            );
+          })}
         </ul>
       </div>
     );

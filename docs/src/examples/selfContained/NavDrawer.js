@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navdrawer } from 'rad-navdrawer';
 
-export function NavDrawerSelfContained (props) {
+export function NavDrawerSelfContained(props) {
   return (
     <Navdrawer placement="right">
       <p>1</p>
@@ -10,8 +10,7 @@ export function NavDrawerSelfContained (props) {
   );
 }
 
-export var NavDrawerSelfContainedSource =
-`
+export var NavDrawerSelfContainedSource = `
 import React from 'react';
 import { NavDrawer } from 'radcomponents';
 
@@ -25,9 +24,16 @@ function NavDrawerSelfContained (props) {
 }
 `;
 
-export var NavDrawerProps =
-`
-NavDrawer.propType = {
-  placement: React.PropTypes.oneOf(['right', 'left']),
-}
+export var NavDrawerProps = `
+type NavdrawerProps = {
+  showMenu?: boolean,
+  openMenu?: Function,
+  closeMenu?: Function,
+  menuIcon?: any,
+  closeIcon?: any,
+  placement: 'right' | 'left',
+  styles?: { navMenu?: Object, navMenuBtn?: Object, navExitBtn?: Object },
+  children: any
+};
+type NavdrawerState = { showMenu: boolean };
 `;

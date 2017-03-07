@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '70vh',
     maxHeight: '65vh',
-    overflow: 'hidden',
+    overflow: 'hidden'
   },
   view: {
     width: 100,
@@ -18,18 +18,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#FF9EF8',
     border: '3px solid #D0FFFE',
     color: '#8574FF',
-    marginLeft: 'auto',
+    marginLeft: 'auto'
   },
-   header: {
+  header: {
     alignSelf: 'center',
-    color: '#8574FF',
+    color: '#8574FF'
   },
   componentContainerCenter: {
     display: 'flex',
     flexDirection: 'column',
     height: 'inherit',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   componentContainerEdge: {
     display: 'flex',
@@ -39,25 +39,41 @@ const styles = StyleSheet.create({
   }
 });
 
-function ViewComponent (props) {
+function ViewComponent(props) {
   let activeInfo = getTitle(props.pathname.pathname);
 
   if (props.open) {
     return (
-        <div className={css(styles.viewComponent)}>
-          <button onClick={props.showSource} className={css(styles.view)}>&times;</button>
-          <h1 className={css(styles.header)}>{activeInfo.activeTitle}</h1>
-          <div className={(props.pathname.pathname === '/docs/navbar') ? css(styles.componentContainerEdge) : css(styles.componentContainerCenter)}>
-            {activeInfo.activeComponents[props.selectedComponent]}
-          </div>
+      <div className={css(styles.viewComponent)}>
+        <button onClick={props.showSource} className={css(styles.view)}>
+          &times;
+        </button>
+        <h1 className={css(styles.header)}>{activeInfo.activeTitle}</h1>
+        <div
+          className={
+            props.pathname.pathname === '/docs/navbar'
+              ? css(styles.componentContainerEdge)
+              : css(styles.componentContainerCenter)
+          }
+        >
+          {activeInfo.activeComponents[props.selectedComponent]}
         </div>
+      </div>
     );
   }
   return (
     <div className={css(styles.viewComponent)}>
-      <button onClick={props.showSource} className={css(styles.view)}>{`<>`}</button>
+      <button onClick={props.showSource} className={css(styles.view)}>
+        {`<>`}
+      </button>
       <h1 className={css(styles.header)}>{activeInfo.activeTitle}</h1>
-      <div className={(props.pathname.pathname === '/docs/navbar') ? css(styles.componentContainerEdge) : css(styles.componentContainerCenter)}>
+      <div
+        className={
+          props.pathname.pathname === '/docs/navbar'
+            ? css(styles.componentContainerEdge)
+            : css(styles.componentContainerCenter)
+        }
+      >
         {activeInfo.activeComponents[props.selectedComponent]}
       </div>
     </div>

@@ -36,6 +36,8 @@ export class ModalSelfContained extends Component {
           <h2>This Modal is Pretty Rad!?!?</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+
+
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
             veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
             ea commodo consequat. Duis aute irure dolor in reprehenderit in
@@ -86,11 +88,13 @@ function ModalSelfContained (props) {
 `;
 
 export var ModalProps = `
-Modal.propTypes = {
-  width: React.PropTypes.number,
-  height: React.PropTypes.number,
-  modalOpener: React.PropTypes.oneOfType([React.PropTypes.func, React.PropTypes.element]),
-  toggle: React.PropTypes.func,
-  isOpen: React.PropTypes.bool,
+type ModalProps = {
+  className?: string,
+  width?: string | number,
+  height?: string | number,
+  openModal: Function,
+  closeModal: Function,
+  isOpen: boolean,
+  children: any
 };
 `;

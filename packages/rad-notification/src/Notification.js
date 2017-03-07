@@ -75,12 +75,12 @@ export function Notification(props: NotificationProps) {
       style={
         props.showNotification
           ? props.notiPlacement === 'topLeft'
-            ? { ...styles.topLeft, ...styles.notification }
-            : props.notiPlacement === 'topRight'
-              ? { ...styles.topRight, ...styles.notification }
-              : props.notiPlacement === 'bottomLeft'
-                ? { ...styles.bottomLeft, ...styles.notification }
-                : { ...styles.bottomRight, ...styles.notification }
+              ? { ...styles.topLeft, ...styles.notification }
+              : props.notiPlacement === 'topRight'
+                  ? { ...styles.topRight, ...styles.notification }
+                  : props.notiPlacement === 'bottomLeft'
+                      ? { ...styles.bottomLeft, ...styles.notification }
+                      : { ...styles.bottomRight, ...styles.notification }
           : styles.notificationDismissed
       }
       className={props.className || 'notification'}

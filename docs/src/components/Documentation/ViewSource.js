@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRight: '1px solid #FF9EF8',
+    borderRight: '1px solid #FF9EF8'
   },
   viewSource: {
     display: 'flex',
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     width: '100%',
     boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
     margin: '0 40px',
-    backgroundColor: '#F9FFFF',
+    backgroundColor: '#F9FFFF'
   },
   highlight: {
     maxWidth: 650,
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     backgroundColor: '#8574FF',
     width: '100%',
-    height: 60,
+    height: 60
   },
   editorTab: {
     display: 'flex',
@@ -37,21 +37,21 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     backgroundColor: '#FF9EF8',
     width: '100%',
-    height: 60,
+    height: 60
   },
   editorActiveTab: {
-    backgroundColor: '#8574FF',
+    backgroundColor: '#8574FF'
   },
   editorTabText: {
     color: '#D0FFFE',
     fontWeight: 300,
     fontSize: 16,
     letterSpacing: 2,
-    margin: 0,
+    margin: 0
   },
   midTab: {
     borderLeft: '1px solid #D0FFFE',
-    borderRight: '1px solid #D0FFFE',
+    borderRight: '1px solid #D0FFFE'
   },
   viewProps: {
     marginTop: 10,
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   propsHeader: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   viewHeader: {
     display: 'flex',
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     fontWeight: 300,
     letterSpacing: 2,
     margin: 0,
-    marginLeft: 20,
+    marginLeft: 20
   },
   show: {
     display: 'flex',
@@ -82,20 +82,20 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
     margin: 0,
     marginLeft: 'auto',
-    marginRight: 20,
+    marginRight: 20
   }
 });
 
 class ViewSource extends React.Component {
-  componentDidMount () {
+  componentDidMount() {
     this.props.blockAnime();
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.props.blockAnime();
   }
 
-  render () {
+  render() {
     let activeInfo = getTitle(this.props.pathname.pathname);
 
     if (this.props.showProps) {
@@ -103,61 +103,134 @@ class ViewSource extends React.Component {
         <div className={css(styles.container)}>
           <div className={css(styles.viewSource)}>
             <div className={css(styles.editorBar)}>
-              <div onClick={() => this.props.selectComponent(0)} className={(this.props.selectedComponent === 0) ? css(styles.editorTab, styles.editorActiveTab) : css(styles.editorTab)}>
-                <h2 className={css(styles.editorTabText)}>Self Contained {activeInfo.activeTitle}.js</h2>
+              <div
+                onClick={() => this.props.selectComponent(0)}
+                className={
+                  this.props.selectedComponent === 0
+                    ? css(styles.editorTab, styles.editorActiveTab)
+                    : css(styles.editorTab)
+                }
+              >
+                <h2 className={css(styles.editorTabText)}>
+                  Self Contained {activeInfo.activeTitle}.js
+                </h2>
               </div>
-              <div onClick={() => this.props.selectComponent(1)} className={(this.props.selectedComponent === 1) ? css(styles.editorTab, styles.midTab, styles.editorActiveTab) : css(styles.editorTab, styles.midTab)}>
-                <h2 className={css(styles.editorTabText)}>Controlled {activeInfo.activeTitle}.js</h2>
+              <div
+                onClick={() => this.props.selectComponent(1)}
+                className={
+                  this.props.selectedComponent === 1
+                    ? css(
+                        styles.editorTab,
+                        styles.midTab,
+                        styles.editorActiveTab
+                      )
+                    : css(styles.editorTab, styles.midTab)
+                }
+              >
+                <h2 className={css(styles.editorTabText)}>
+                  Controlled {activeInfo.activeTitle}.js
+                </h2>
               </div>
-              <div onClick={() => this.props.selectComponent(2)} className={(this.props.selectedComponent === 2) ? css(styles.editorTab, styles.editorActiveTab) : css(styles.editorTab)}>
-                <h2 className={css(styles.editorTabText)}>Animated {activeInfo.activeTitle}.js</h2>
+              <div
+                onClick={() => this.props.selectComponent(2)}
+                className={
+                  this.props.selectedComponent === 2
+                    ? css(styles.editorTab, styles.editorActiveTab)
+                    : css(styles.editorTab)
+                }
+              >
+                <h2 className={css(styles.editorTabText)}>
+                  Animated {activeInfo.activeTitle}.js
+                </h2>
               </div>
             </div>
           </div>
           <div className={css(styles.viewProps)}>
             <div className={css(styles.propsHeader)}>
               <h2 className={css(styles.viewHeader)}>{`<Props>`}</h2>
-              <h2 className={css(styles.show)} onClick={this.props.showPropsInfo}>&#x025B4;</h2>
+              <h2
+                className={css(styles.show)}
+                onClick={this.props.showPropsInfo}
+              >
+                &#x025B4;
+              </h2>
             </div>
-            <Codehighlighter className={css(styles.highlight)}
-                             language="javascript"
-                             plugins={[{
-                               title: "line-numbers",
-                               func: lineNumbers
-                             }]}>
-{activeInfo.activeProps}
+            <Codehighlighter
+              className={css(styles.highlight)}
+              language="javascript"
+              plugins={[
+                {
+                  title: 'line-numbers',
+                  func: lineNumbers
+                }
+              ]}
+            >
+              {activeInfo.activeProps}
             </Codehighlighter>
           </div>
         </div>
-      )
+      );
     }
     return (
       <div className={css(styles.container)}>
         <div className={css(styles.viewSource)}>
           <div className={css(styles.editorBar)}>
-            <div onClick={() => this.props.selectComponent(0)} className={(this.props.selectedComponent === 0) ? css(styles.editorTab, styles.editorActiveTab) : css(styles.editorTab)}>
-              <h2 className={css(styles.editorTabText)}>Self Contained {activeInfo.activeTitle}.js</h2>
+            <div
+              onClick={() => this.props.selectComponent(0)}
+              className={
+                this.props.selectedComponent === 0
+                  ? css(styles.editorTab, styles.editorActiveTab)
+                  : css(styles.editorTab)
+              }
+            >
+              <h2 className={css(styles.editorTabText)}>
+                Self Contained {activeInfo.activeTitle}.js
+              </h2>
             </div>
-            <div onClick={() => this.props.selectComponent(1)} className={(this.props.selectedComponent === 1) ? css(styles.editorTab, styles.midTab, styles.editorActiveTab) : css(styles.editorTab, styles.midTab)}>
-              <h2 className={css(styles.editorTabText)}>Controlled {activeInfo.activeTitle}.js</h2>
+            <div
+              onClick={() => this.props.selectComponent(1)}
+              className={
+                this.props.selectedComponent === 1
+                  ? css(styles.editorTab, styles.midTab, styles.editorActiveTab)
+                  : css(styles.editorTab, styles.midTab)
+              }
+            >
+              <h2 className={css(styles.editorTabText)}>
+                Controlled {activeInfo.activeTitle}.js
+              </h2>
             </div>
-            <div onClick={() => this.props.selectComponent(2)} className={(this.props.selectedComponent === 2) ? css(styles.editorTab, styles.editorActiveTab) : css(styles.editorTab)}>
-              <h2 className={css(styles.editorTabText)}>Animated {activeInfo.activeTitle}.js</h2>
+            <div
+              onClick={() => this.props.selectComponent(2)}
+              className={
+                this.props.selectedComponent === 2
+                  ? css(styles.editorTab, styles.editorActiveTab)
+                  : css(styles.editorTab)
+              }
+            >
+              <h2 className={css(styles.editorTabText)}>
+                Animated {activeInfo.activeTitle}.js
+              </h2>
             </div>
           </div>
-          <Codehighlighter className={css(styles.highlight)}
-                           language="javascript"
-                           plugins={[{
-                             title: "line-numbers",
-                             func: lineNumbers
-                           }]}>
-{activeInfo.activeSource[this.props.selectedComponent]}
+          <Codehighlighter
+            className={css(styles.highlight)}
+            language="javascript"
+            plugins={[
+              {
+                title: 'line-numbers',
+                func: lineNumbers
+              }
+            ]}
+          >
+            {activeInfo.activeSource[this.props.selectedComponent]}
           </Codehighlighter>
         </div>
         <div className={css(styles.viewProps)}>
           <div className={css(styles.propsHeader)}>
             <h2 className={css(styles.viewHeader)}>{`<Props>`}</h2>
-            <h2 className={css(styles.show)} onClick={this.props.showPropsInfo}>&#x025BE;</h2>
+            <h2 className={css(styles.show)} onClick={this.props.showPropsInfo}>
+              &#x025BE;
+            </h2>
           </div>
         </div>
       </div>
@@ -165,11 +238,11 @@ class ViewSource extends React.Component {
   }
 }
 
-function lineNumbers (Prism) {
+function lineNumbers(Prism) {
   if (typeof self === 'undefined' || !self.Prism || !self.document) {
     return;
   }
-  Prism.hooks.add('complete', function (env) {
+  Prism.hooks.add('complete', function(env) {
     if (!env.code) {
       return;
     }
@@ -177,13 +250,14 @@ function lineNumbers (Prism) {
     var pre = env.element.parentNode;
     var clsReg = /\s*\bline-numbers\b\s*/;
     if (
-      !pre || !/pre/i.test(pre.nodeName) ||
-      (!clsReg.test(pre.className) && !clsReg.test(env.element.className))
+      !pre ||
+        !/pre/i.test(pre.nodeName) ||
+        !clsReg.test(pre.className) && !clsReg.test(env.element.className)
     ) {
       return;
     }
 
-    if (env.element.querySelector(".line-numbers-rows")) {
+    if (env.element.querySelector('.line-numbers-rows')) {
       return;
     }
 
@@ -207,10 +281,11 @@ function lineNumbers (Prism) {
     lineNumbersWrapper.innerHTML = lines;
 
     if (pre.hasAttribute('data-start')) {
-      pre.style.counterReset = 'linenumber ' + (parseInt(pre.getAttribute('data-start'), 10) - 1);
+      pre.style.counterReset = 'linenumber ' +
+        (parseInt(pre.getAttribute('data-start'), 10) - 1);
     }
     env.element.appendChild(lineNumbersWrapper);
   });
-};
+}
 
 export default ViewSource;

@@ -18,11 +18,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     maxWidth: 300,
-    color: '#8574FF',
+    color: '#8574FF'
   }
 });
 
-function Info (props) {
+function Info(props) {
   return (
     <div className={css(styles.info)}>
       <div className={css(styles.infoBlock)}>

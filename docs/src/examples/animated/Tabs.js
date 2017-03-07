@@ -2,26 +2,44 @@ import React from 'react';
 import Anime from 'react-anime';
 import { Tabs, Tab } from 'rad-tabs';
 
-export function TabsAnimated (props) {
+export function TabsAnimated(props) {
   return (
     <Tabs>
       <Tab label="RAD">
         <Anime>
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
             <h3>Some RAD Content 1 </h3>
           </div>
         </Anime>
       </Tab>
       <Tab label="Awesome">
         <Anime>
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
             <h3>Some Awesome Content 2 </h3>
           </div>
         </Anime>
       </Tab>
       <Tab label="Interesting">
         <Anime>
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
             <h3>Some Interesting Content 3 </h3>
           </div>
         </Anime>
@@ -30,8 +48,7 @@ export function TabsAnimated (props) {
   );
 }
 
-export var TabsAnimatedSource =
-`
+export var TabsAnimatedSource = `
 import React from 'react';
 import { Tabs, Tab } from 'radcomponents';
 

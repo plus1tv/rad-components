@@ -1,39 +1,38 @@
 import React from 'react';
-import { Tabs, Tab } from './../../packages/rad-tabs/dist/Tabs.js';
 
-export default class TabsControlled extends React.Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      activeTab: 0
-    };
-  }
+import {
+  Navbar,
+  Navbrand,
+  NavItemsLeft,
+  NavItemsRight,
+  NavItemsCenter,
+  NavDrawer
+} from './../../packages/rad-navbar/dist/Navbar.js';
 
-  showTab (tabIndex) {
-    alert('do something when you click a <Tab />');
-    this.setState((prevState) => ({activeTab: tabIndex}));
-  }
-
-  render () {
-    return (
-      <Tabs activeTab={this.state.activeTab} showTab={(index) => this.showTab(index)}>
-        <Tab label="RAD">
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-            <h3>Some RAD Content 1 </h3>
-          </div>
-        </Tab>
-        <Tab label="Awesome">
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-            <h3>Some Awesome Content 2 </h3>
-          </div>
-        </Tab>
-
-        <Tab label="Interesting">
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-            <h3>Some Interesting Content 3 </h3>
-          </div>
-        </Tab>
-      </Tabs>
-    );
-  }
+export default function NavbarSelfContained(props) {
+  return (
+    <Navbar breakPoint={760} height={70} menu="independant" position="bottom">
+      <Navbrand>
+        <NavDrawer menuPosition="left" position="bottom">
+          <ul>
+            <li>Test</li>
+          </ul>
+        </NavDrawer>
+        <h3>
+          <Navbrand>
+            <a to="/">Brand</a>
+          </Navbrand>
+        </h3>
+      </Navbrand>
+      <NavItemsLeft>
+        <a>itemLeft1</a>
+      </NavItemsLeft>
+      <NavItemsCenter>
+        <a>itemCenter1</a>
+      </NavItemsCenter>
+      <NavItemsRight>
+        <a>itemRight1</a>
+      </NavItemsRight>
+    </Navbar>
+  );
 }

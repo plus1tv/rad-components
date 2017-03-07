@@ -44,8 +44,10 @@ export class Navdrawer extends Component {
         justifyContent: 'flex-start',
         alignItems: 'center',
         height: `100vh`,
-        boxShadow: this.props.shadow ||
-          `0 0px 3px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24)`,
+        boxShadow: (
+          this.props.shadow ||
+            `0 0px 3px rgba(0,0,0,0.12), 0 2px 6px rgba(0,0,0,0.24)`
+        ),
         backgroundColor: '#fff',
         zIndex: 1500,
         ...(this.props.styles && this.props.styles.navMenu
@@ -80,10 +82,8 @@ export class Navdrawer extends Component {
           className={this.props.className || 'navdrawer'}
         >
           <p
-            onClick={
-              e =>
-                this.props.closeMenu ? this.props.closeMenu() : this._showMenu()
-            }
+            onClick={e =>
+              this.props.closeMenu ? this.props.closeMenu() : this._showMenu()}
             style={styles.navExitBtn}
           >
             {this.props.closeIcon || <span>&times;</span>}
@@ -98,9 +98,8 @@ export class Navdrawer extends Component {
         className={this.props.className || 'navdrawer'}
       >
         <p
-          onClick={
-            e => this.props.openMenu ? this.props.openMenu() : this._showMenu()
-          }
+          onClick={e =>
+            this.props.openMenu ? this.props.openMenu() : this._showMenu()}
         >
           {this.props.menuIcon || <span>&#9776;</span>}
         </p>

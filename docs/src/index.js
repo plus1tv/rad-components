@@ -18,17 +18,17 @@ const styles = StyleSheet.create({
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
-    overflowX: 'hidden',
-  },
+    overflowX: 'hidden'
+  }
 });
 
 ReactDOM.render(
   <Router>
     <div className={css(styles.container)}>
-      <Match exactly pattern='/' component={Home}/>
-      <Match pattern="/docs" component={Documentation}/>
-      <Match pattern="/test" component={Test}/>
-      <Miss component={NotFound}/>
+      <Match exactly pattern="/" component={Home} />
+      <Match pattern="/docs" component={Documentation} />
+      <Match pattern="/test" component={Test} />
+      <Miss component={NotFound} />
       <Footer />
     </div>
   </Router>,

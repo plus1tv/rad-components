@@ -45,13 +45,43 @@ function NavbarSelfContained (props) {
 `;
 
 export var NavbarProps = `
-Navbar.propTypes = {
-  height: React.PropTypes.number,
-  shadow: React.PropTypes.string,
+type NavbarProps = {
+  className?: string,
+  breakPoint?: number,
+  showMenu?: boolean,
+  openMenu?: Function,
+  closeMenu?: Function,
+  height?: string | number,
+  shadow?: string,
+  styles?: {
+    navbar?: Object,
+    navbtn?: Object,
+    navdrawer?: { navMenu?: Object, navMenuBtn?: Object, navExitBtn?: Object }
+  },
+  children: any
 };
 
-Navbrand.propTypes = {
-  logo: React.PropTypes.string,
-  title: React.PropTypes.string,
+type NavbarState = { height: number, width: number, showMenu?: boolean };
+
+type NavbrandProps = {
+  className?: string,
+  children: any,
+  styles?: Object
+};
+
+type NavItemsLeftProps = {
+  className?: string,
+  width: number,
+  breakPoint?: number,
+  styles?: { navItems?: Object, navItemsSmall?: Object },
+  children: any
+};
+
+type NavItemsRightProps = {
+  className?: string,
+  width: number,
+  breakPoint?: number,
+  styles?: { navItems?: Object, navItemsSmall?: Object },
+  children: any
 };
 `;

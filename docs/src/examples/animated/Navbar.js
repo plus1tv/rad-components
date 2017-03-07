@@ -10,7 +10,7 @@ export function NavbarAnimated(props) {
         autoplay={true}
         duration={300}
         delay={() => 0}
-        translateX={[ -100, 0 ]}
+        translateX={[-100, 0]}
       >
         <Navbrand>
           <a to="/">Brand</a>
@@ -22,7 +22,7 @@ export function NavbarAnimated(props) {
           autoplay={true}
           duration={300}
           delay={() => 0}
-          translateY={[ 100, 0 ]}
+          translateY={[100, 0]}
         >
           <a>itemLeft1</a>
         </Anime>
@@ -33,7 +33,7 @@ export function NavbarAnimated(props) {
           autoplay={true}
           duration={300}
           delay={() => 0}
-          translateY={[ -100, 0 ]}
+          translateY={[-100, 0]}
         >
           <a>itemRight1</a>
         </Anime>

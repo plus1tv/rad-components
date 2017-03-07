@@ -20,18 +20,18 @@ const styles = StyleSheet.create({
   },
   consolation: {
     marginLeft: 10,
-    marginRight: 10,
+    marginRight: 10
   },
   consolationContainer: {
     display: 'flex',
     width: '100%',
     justifyContent: 'space-around',
-    padding: '40px 0',
+    padding: '40px 0'
   },
   unicornContainer: {
     display: 'flex',
     width: '100%',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   unicorn: {
     width: '100%',
@@ -53,13 +53,13 @@ const styles = StyleSheet.create({
     border: '4px solid #D0FFFE',
     fontSize: 20,
     margin: 20,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   getStartedContainer: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   RFC: {
     color: '#D0FFFE',
@@ -69,24 +69,32 @@ const styles = StyleSheet.create({
   }
 });
 
-function Header (props) {
+function Header(props) {
   return (
     <div className={css(styles.header)}>
       <div className={css(styles.consolationContainer)}>
-        <Consolation className={css(styles.consolation)}/>
-        <ConsolationReverse className={css(styles.consolation)}/>
+        <Consolation className={css(styles.consolation)} />
+        <ConsolationReverse className={css(styles.consolation)} />
       </div>
       {/*<Alien />*/}
       <Rad />
-      <Anime opacity={[0,1]} delay={(e,i) => (i + 1) * 1000} duration={(e,i) => 8000}>
+      <Anime
+        opacity={[0, 1]}
+        delay={(e, i) => (i + 1) * 1000}
+        duration={(e, i) => 8000}
+      >
         <div className={css(styles.getStartedContainer)}>
           <h1 className={css(styles.RFC)}>RAD COMPONENTS</h1>
-          <span><Link to="/docs"><button className={css(styles.getStarted)}>GET STARTED</button></Link></span>
+          <span>
+            <Link to="/docs">
+              <button className={css(styles.getStarted)}>GET STARTED</button>
+            </Link>
+          </span>
         </div>
       </Anime>
       <div className={css(styles.unicornContainer)}>
-        <Unicorn className={css(styles.unicorn)}/>
-        <UnicornReverse className={css(styles.unicornReverse)}/>
+        <Unicorn className={css(styles.unicorn)} />
+        <UnicornReverse className={css(styles.unicornReverse)} />
       </div>
     </div>
   );

@@ -2,34 +2,55 @@ import React, { Component } from 'react';
 import { Tabs, Tab } from 'rad-tabs';
 
 export class TabsControlled extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       activeTab: 0
     };
   }
 
-  showTab (tabIndex) {
+  showTab(tabIndex) {
     alert('do something when you click a <Tab />');
-    this.setState((prevState) => ({activeTab: tabIndex}));
+    this.setState(prevState => ({ activeTab: tabIndex }));
   }
 
-  render () {
+  render() {
     return (
-      <Tabs activeTab={this.state.activeTab} showTab={(index) => this.showTab(index)}>
+      <Tabs
+        activeTab={this.state.activeTab}
+        showTab={index => this.showTab(index)}
+      >
         <Tab label="RAD">
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
             <h3>Some RAD Content 1 </h3>
           </div>
         </Tab>
         <Tab label="Awesome">
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
             <h3>Some Awesome Content 2 </h3>
           </div>
         </Tab>
 
         <Tab label="Interesting">
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
             <h3>Some Interesting Content 3 </h3>
           </div>
         </Tab>
@@ -38,8 +59,7 @@ export class TabsControlled extends Component {
   }
 }
 
-export var TabsControlledSource =
-`import React, { Component } from 'react';
+export var TabsControlledSource = `import React, { Component } from 'react';
 import { Tabs, Tab } from 'radcomponents';
 
 class TabsControlled extends Component {

@@ -38,28 +38,40 @@ const styles = StyleSheet.create({
   },
   list: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column'
   },
   hide: {
     display: 'none',
-    visibility: 'hidden',
+    visibility: 'hidden'
   }
 });
 
-function Docnav (props) {
+function Docnav(props) {
   return (
     <div className={css(styles.docnav)}>
       <div className={css(styles.list)}>
-        <Link className={css(styles.listItem)} to={`/docs`}>Getting Started</Link>
+        <Link className={css(styles.listItem)} to={`/docs`}>
+          Getting Started
+        </Link>
         <Link className={css(styles.listItem)} to={`/docs/navbar`}>Navbar</Link>
-        <Link className={css(styles.listItem)} to={`/docs/navdrawer`}>NavDrawer</Link>
+        <Link className={css(styles.listItem)} to={`/docs/navdrawer`}>
+          NavDrawer
+        </Link>
         <Link className={css(styles.listItem)} to={`/docs/card`}>Card</Link>
-        <Link className={css(styles.listItem)} to={`/docs/codehighlighter`}>CodeHighlighter</Link>
+        <Link className={css(styles.listItem)} to={`/docs/codehighlighter`}>
+          CodeHighlighter
+        </Link>
         <Link className={css(styles.listItem)} to={`/docs/tabs`}>Tabs</Link>
-        <Link className={css(styles.listItem)} to={`/docs/stepper`}>Stepper</Link>
+        <Link className={css(styles.listItem)} to={`/docs/stepper`}>
+          Stepper
+        </Link>
         <Link className={css(styles.listItem)} to={`/docs/modal`}>Modal</Link>
-        <Link className={css(styles.listItem)} to={`/docs/notification`}>Notification</Link>
-        <Link className={css(styles.listItem)} to={`/docs/popover`}>Popover</Link>
+        <Link className={css(styles.listItem)} to={`/docs/notification`}>
+          Notification
+        </Link>
+        <Link className={css(styles.listItem)} to={`/docs/popover`}>
+          Popover
+        </Link>
       </div>
     </div>
   );

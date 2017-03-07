@@ -2,20 +2,24 @@ import React from 'react';
 import Anime from 'react-anime';
 import { Modal } from 'rad-modal';
 
-const Opener = (props) => <button>Im Self Contained</button>;
+const Opener = props => <button>Im Self Contained</button>;
 
-export function ModalAnimated (props) {
+export function ModalAnimated(props) {
   return (
     <Modal ModalOpener={Opener}>
-      <Anime easing="linear"
-         autoplay={true}
-         duration={300}
-         delay={() => 0}
-         translateY={[-100, 0]}>
+      <Anime
+        easing="linear"
+        autoplay={true}
+        duration={300}
+        delay={() => 0}
+        translateY={[-100, 0]}
+      >
         <div>
           <h2>This Modal is Pretty Rad!?!?</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+
+
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
             veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
             ea commodo consequat. Duis aute irure dolor in reprehenderit in
@@ -24,8 +28,12 @@ export function ModalAnimated (props) {
             officia deserunt mollit anim id est laborum.
           </p>
           <div>
-            <button style={{width: 120, height: 30, borderRadius: 0}}>Do Something</button>
-            <button style={{width: 120, height: 30, borderRadius: 0}}>Do Something Else</button>
+            <button style={{ width: 120, height: 30, borderRadius: 0 }}>
+              Do Something
+            </button>
+            <button style={{ width: 120, height: 30, borderRadius: 0 }}>
+              Do Something Else
+            </button>
           </div>
         </div>
       </Anime>
@@ -33,8 +41,7 @@ export function ModalAnimated (props) {
   );
 }
 
-export var ModalAnimatedSource =
-`
+export var ModalAnimatedSource = `
 import React from 'react';
 import { Modal } from 'radcomponents';
 

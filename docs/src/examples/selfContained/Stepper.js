@@ -1,7 +1,7 @@
 import React from 'react';
 import { Stepper, Step } from 'rad-stepper';
 
-export function StepperSelfContained (props) {
+export function StepperSelfContained(props) {
   return (
     <Stepper breakPoint={1000} seperatorSize={100}>
       <Step label="Rad">
@@ -17,8 +17,7 @@ export function StepperSelfContained (props) {
   );
 }
 
-export var StepperSelfContainedSource =
-`
+export var StepperSelfContainedSource = `
 import React from 'react';
 import { Stepper, Step } from 'radcomponents';
 
@@ -39,13 +38,30 @@ function StepperSelfContained (props) {
 }
 `;
 
-export var StepperProps =
-`
-Stepper.propTypes = {
-  breakPoint: React.PropTypes.number,
-  showStep: React.PropTypes.func,
-  activeStep: React.PropTypes.number,
-  seperatorSize: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
-  stepIndexColor: React.PropTypes.string,
+export var StepperProps = `
+type StepperProps = {
+  className?: string,
+  breakPoint?: number,
+  showStep?: Function,
+  activeStep?: number,
+  seperatorSize?: string | number,
+  stepIndexColor?: string,
+  styles?: {
+    hStepList?: Object,
+    vStepList?: Object,
+    hStepItem?: Object,
+    vStepItem?: Object,
+    hstepLead?: Object,
+    stepIndex?: Object,
+    vStepLead?: Object,
+    vStepLast?: Object
+  },
+  children: any
 };
-`
+type State = {
+  height: number,
+  width: number,
+  horizontal: boolean,
+  activeStep?: number
+};
+`;

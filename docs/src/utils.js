@@ -1,37 +1,105 @@
 import React from 'react';
 
-import { NavbarSelfContained, NavbarSelfContainedSource, NavbarProps } from './examples/selfContained/Navbar.js';
+import {
+  NavbarSelfContained,
+  NavbarSelfContainedSource,
+  NavbarProps
+} from './examples/selfContained/Navbar.js';
 import { ModalProps } from './examples/selfContained/Modal.js';
-import { NavDrawerSelfContained, NavDrawerSelfContainedSource, NavDrawerProps } from './examples/selfContained/NavDrawer.js';
-import { CardSelfContained, CardSelfContainedSource, CardProps } from './examples/selfContained/Card.js';
-import { CodeHighlighterSelfContained, CodeHighlighterSelfContainedSource, CodeHighlighterProps } from './examples/selfContained/CodeHighlighter.js';
-import { TabsSelfContained, TabsSelfContainedSource, TabsProps } from './examples/selfContained/Tabs.js';
-import { StepperSelfContained, StepperSelfContainedSource, StepperProps } from './examples/selfContained/Stepper.js';
-import { NotificationSelfContained, NotificationSelfContainedSource, NotificationProps } from './examples/selfContained/Notification.js';
-import { PopoverSelfContained, PopoverSelfContainedSource, PopoverProps } from './examples/selfContained/Popover.js';
+import {
+  NavDrawerSelfContained,
+  NavDrawerSelfContainedSource,
+  NavDrawerProps
+} from './examples/selfContained/NavDrawer.js';
+import {
+  CardSelfContained,
+  CardSelfContainedSource,
+  CardProps
+} from './examples/selfContained/Card.js';
+import {
+  CodeHighlighterSelfContained,
+  CodeHighlighterSelfContainedSource,
+  CodeHighlighterProps
+} from './examples/selfContained/CodeHighlighter.js';
+import {
+  TabsSelfContained,
+  TabsSelfContainedSource,
+  TabsProps
+} from './examples/selfContained/Tabs.js';
+import {
+  StepperSelfContained,
+  StepperSelfContainedSource,
+  StepperProps
+} from './examples/selfContained/Stepper.js';
+import {
+  NotificationSelfContained,
+  NotificationSelfContainedSource,
+  NotificationProps
+} from './examples/selfContained/Notification.js';
+import {
+  PopoverSelfContained,
+  PopoverSelfContainedSource,
+  PopoverProps
+} from './examples/selfContained/Popover.js';
 
-import { NavbarControlled, NavbarControlledSource } from './examples/controlled/Navbar.js';
-import { NavDrawerControlled, NavDrawerControlledSource } from './examples/controlled/NavDrawer.js';
-import { TabsControlled, TabsControlledSource } from './examples/controlled/Tabs.js';
-import { StepperControlled, StepperControlledSource } from './examples/controlled/Stepper.js';
-import { ModalControlled, ModalControlledSource } from './examples/controlled/Modal.js';
-import { NotificationControlled, NotificationControlledSource } from './examples/controlled/Notification.js';
-import { PopoverControlled, PopoverControlledSource } from './examples/controlled/Popover.js';
+import {
+  NavbarControlled,
+  NavbarControlledSource
+} from './examples/controlled/Navbar.js';
+import {
+  NavDrawerControlled,
+  NavDrawerControlledSource
+} from './examples/controlled/NavDrawer.js';
+import {
+  TabsControlled,
+  TabsControlledSource
+} from './examples/controlled/Tabs.js';
+import {
+  StepperControlled,
+  StepperControlledSource
+} from './examples/controlled/Stepper.js';
+import {
+  ModalControlled,
+  ModalControlledSource
+} from './examples/controlled/Modal.js';
+import {
+  NotificationControlled,
+  NotificationControlledSource
+} from './examples/controlled/Notification.js';
+import {
+  PopoverControlled,
+  PopoverControlledSource
+} from './examples/controlled/Popover.js';
 
-import { NavbarAnimated, NavbarAnimatedSource } from './examples/animated/Navbar.js';
-import { ModalAnimated, ModalAnimatedSource } from './examples/animated/Modal.js';
-import { NavDrawerAnimated, NavDrawerAnimatedSource } from './examples/animated/NavDrawer.js';
+import {
+  NavbarAnimated,
+  NavbarAnimatedSource
+} from './examples/animated/Navbar.js';
+import {
+  ModalAnimated,
+  ModalAnimatedSource
+} from './examples/animated/Modal.js';
+import {
+  NavDrawerAnimated,
+  NavDrawerAnimatedSource
+} from './examples/animated/NavDrawer.js';
 import { CardAnimated, CardAnimatedSource } from './examples/animated/Card.js';
 import { TabsAnimated, TabsAnimatedSource } from './examples/animated/Tabs.js';
-import { StepperAnimated, StepperAnimatedSource } from './examples/animated/Stepper.js';
-import { NotificationAnimated, NotificationAnimatedSource } from './examples/animated/Notification.js';
-import { PopoverAnimated, PopoverAnimatedSource } from './examples/animated/Popover.js';
+import {
+  StepperAnimated,
+  StepperAnimatedSource
+} from './examples/animated/Stepper.js';
+import {
+  NotificationAnimated,
+  NotificationAnimatedSource
+} from './examples/animated/Notification.js';
+import {
+  PopoverAnimated,
+  PopoverAnimatedSource
+} from './examples/animated/Popover.js';
 
-export function getTitle (pathname) {
-  let activeTitle,
-      activeSource = [],
-      activeProps = '',
-      activeComponents = [];
+export function getTitle(pathname) {
+  let activeTitle, activeSource = [], activeProps = '', activeComponents = [];
   switch (pathname) {
     case '/docs/navbar':
       activeTitle = 'Navbar';
@@ -39,7 +107,7 @@ export function getTitle (pathname) {
         NavbarSelfContainedSource,
         NavbarControlledSource,
         NavbarAnimatedSource
-      ]
+      ];
       activeProps = NavbarProps;
       activeComponents = [
         <NavbarSelfContained />,
@@ -53,7 +121,7 @@ export function getTitle (pathname) {
         NavDrawerSelfContainedSource,
         NavDrawerControlledSource,
         NavDrawerAnimatedSource
-      ]
+      ];
       activeProps = NavDrawerProps;
       activeComponents = [
         <NavDrawerSelfContained />,
@@ -63,27 +131,15 @@ export function getTitle (pathname) {
       break;
     case '/docs/card':
       activeTitle = 'Card';
-      activeSource = [
-        CardSelfContainedSource,
-        '',
-        CardAnimatedSource
-      ]
+      activeSource = [CardSelfContainedSource, '', CardAnimatedSource];
       activeProps = CardProps;
-      activeComponents = [
-        <CardSelfContained />,
-        '',
-        <CardAnimated />
-      ];
+      activeComponents = [<CardSelfContained />, '', <CardAnimated />];
       break;
     case '/docs/codehighlighter':
       activeTitle = 'Codehighlighter';
-      activeSource = [
-        CodeHighlighterSelfContainedSource
-      ];
+      activeSource = [CodeHighlighterSelfContainedSource];
       activeProps = CodeHighlighterProps;
-      activeComponents = [
-        <CodeHighlighterSelfContained />
-      ];
+      activeComponents = [<CodeHighlighterSelfContained />];
       break;
     case '/docs/tabs':
       activeTitle = 'Tabs';
@@ -91,7 +147,7 @@ export function getTitle (pathname) {
         TabsSelfContainedSource,
         TabsControlledSource,
         TabsAnimatedSource
-      ]
+      ];
       activeProps = TabsProps;
       activeComponents = [
         <TabsSelfContained />,
@@ -105,7 +161,7 @@ export function getTitle (pathname) {
         StepperSelfContainedSource,
         StepperControlledSource,
         StepperAnimatedSource
-      ]
+      ];
       activeProps = StepperProps;
       activeComponents = [
         <StepperSelfContained />,
@@ -115,17 +171,13 @@ export function getTitle (pathname) {
       break;
     case '/docs/modal':
       activeTitle = 'Modal';
-      activeSource = [
-        null,
-        ModalControlledSource,
-        ModalAnimatedSource
-      ]
+      activeSource = [null, ModalControlledSource, ModalAnimatedSource];
       activeProps = ModalProps;
       activeComponents = [
         null,
-        // <ModalSelfContained />,
+        /* <ModalSelfContained />,*/
         <ModalControlled />,
-        null,
+        null
         // <ModalAnimated />
       ];
       break;
@@ -135,7 +187,7 @@ export function getTitle (pathname) {
         NotificationSelfContainedSource,
         NotificationControlledSource,
         NotificationAnimatedSource
-      ]
+      ];
       activeProps = NotificationProps;
       activeComponents = [
         <NotificationSelfContained />,
@@ -149,7 +201,7 @@ export function getTitle (pathname) {
         PopoverSelfContainedSource,
         PopoverControlledSource,
         PopoverAnimatedSource
-      ]
+      ];
       activeProps = PopoverProps;
       activeComponents = [
         <PopoverSelfContained />,
@@ -157,9 +209,9 @@ export function getTitle (pathname) {
         <PopoverAnimated />
       ];
       break;
-      default:
+    default:
       break;
   }
 
-  return {activeTitle, activeSource, activeProps, activeComponents};
+  return { activeTitle, activeSource, activeProps, activeComponents };
 }

@@ -5,7 +5,8 @@ import './../../highlighter.css';
 export function CodeHighlighterSelfContained(props) {
   return (
     <Codehighlighter language="javascript">
-      {`
+      {
+        `
 <Router>
   <div className={css(styles.container)}>
     <Match exactly pattern='/' component={Home}/>
@@ -15,7 +16,8 @@ export function CodeHighlighterSelfContained(props) {
     <Footer />
   </div>
 </Router>
-`}
+`
+      }
     </Codehighlighter>
   );
 }
@@ -47,26 +49,10 @@ export function CodeHighlighterSelfContained (props) {
 `;
 
 export var CodeHighlighterProps = `
-Card.propTypes = {
-  width: React.PropTypes.number,
-  height: React.PropTypes.number,
-  shadow: React.PropTypes.string,
-};
-
-CardHeader.propTypes = {
-  height: React.PropTypes.number,
-  avatar: React.PropTypes.string,
-  title: React.PropTypes.string,
-  subtitle: React.PropTypes.string,
-  avatarHeight: React.PropTypes.number,
-  avatarWidth: React.PropTypes.number,
-  titleSize: React.PropTypes.number,
-  subtitleSize: React.PropTypes.number,
-};
-
-CardMedia.propTypes = {
-  width: React.PropTypes.number,
-  height: React.PropTypes.number,
-  media: React.PropTypes.string,
+type CodehighlighterProps = {
+  className?: string,
+  language: string,
+  plugins?: { title: string, func: Function },
+  children: any
 };
 `;

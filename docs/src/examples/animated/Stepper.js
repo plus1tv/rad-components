@@ -2,7 +2,7 @@ import React from 'react';
 import Anime from 'react-anime';
 import { Stepper, Step } from 'rad-stepper';
 
-export function StepperAnimated (props) {
+export function StepperAnimated(props) {
   return (
     <Stepper breakPoint={1000} seperatorSize={100}>
       <Step label="Rad">
@@ -18,8 +18,7 @@ export function StepperAnimated (props) {
   );
 }
 
-export var StepperAnimatedSource =
-`
+export var StepperAnimatedSource = `
 import React from 'react';
 import { Stepper, Step } from 'radcomponents';
 
