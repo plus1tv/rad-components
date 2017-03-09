@@ -1,6 +1,6 @@
 {
   "name": "rad-card",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "rad-card component",
   "main": "dist/Card.min.js",
   "repository": "https://github.com/hyperfuse/library-starter.git",
