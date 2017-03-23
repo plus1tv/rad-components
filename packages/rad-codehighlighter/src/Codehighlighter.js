@@ -4,7 +4,7 @@ import Prism from 'prismjs';
 export type CodehighlighterProps = {
   className?: string,
   language: string,
-  plugins?: { title: string, func: Function },
+  plugins?: { title: string, func?: Function },
   children: any
 };
 
@@ -13,17 +13,17 @@ export class Codehighlighter extends PureComponent {
   prismNode: any;
 
   componentDidMount() {
-    this.hightlight();
+    this.highlight();
   }
 
   componentDidUpdate() {
-    this.hightlight();
+    this.highlight();
   }
 
-  hightlight() {
+  highlight() {
     Prism.highlightElement(this.prismNode, this.props.async);
     if (this.props.plugins) {
-      this.props.plugins.map(plugin => plugin.func(Prism));
+      this.props.plugins.map(plugin => plugin.func && plugin.func(Prism));
     }
   }
 
