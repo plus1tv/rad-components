@@ -440,9 +440,7 @@ export function NavItemsCenter(props: NavItemsRightProps) {
       display: 'flex',
       alignSelf: 'center',
       justifyContent: 'center',
-      margin: 0,
-      marginLeft: 30,
-      marginRight: 30,
+      margin: '0 auto',
       padding: 0,
       ...(props.styles && props.styles.navItems ? props.styles.navItems : {})
     },
